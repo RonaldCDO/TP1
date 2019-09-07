@@ -13,3 +13,20 @@
 	<iostream>
 	"dominios.hpp"
 
+1567892622 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\entidades.cpp
+
+1567895164 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\main.cpp
+	<iostream>
+	<string>
+	"dominios.hpp"
+
+1567895829 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.hpp
+	<iostream>
+	<string>
+	<stdexcept>
+
+1567892622 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testes.cpp
+
+1567896895 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.cpp
+	"dominios.hpp"
+

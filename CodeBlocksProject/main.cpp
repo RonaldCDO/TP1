@@ -12,22 +12,22 @@ int main(){
     CodigoDeReserva CR;
     Cidade CITY;
     string a, b, cb, cc, cr, city;
-    cout << "Entre os valores para os domínios na ordem." << endl;
+    cout << "Entre os valores para os dominios na ordem." << endl;
     cin >> a >> b >> cb >> cc >> cr >> city;
     cout << Dominio::CaracterLetra(city[2]) << city[3] << city.size() << endl;
     try{
         A.setValor(a);
-        cout << "O Assento selecionado foi: " << A.getValor() << endl;
+        cout << "Assento selecionado: " << A.getValor() << endl;
         B.setValor(b);
-        cout << "A quantidade de malas escolhida foi: " << B.getValor() << endl;
+        cout << "Quantidade de malas escolhida: " << B.getValor() << endl;
         CB.setValor(cb);
-        cout << "O código do banco é: " << CB.getValor() << endl;
+        cout << "Codigo do Banco: " << CB.getValor() << endl;
         CC.setValor(cc);
-        cout << "O código de carona é: " << CC.getValor() << endl;
+        cout << "Codigo de Carona: " << CC.getValor() << endl;
         CR.setValor(cr);
-        cout << "O código de reserva é: " << CR.getValor() << endl;
+        cout << "Codigo de reserva: " << CR.getValor() << endl;
         CITY.setValor(city);
-        cout << "O nome da cidade é: " << CITY.getValor() << endl;
+        cout << "Nome da cidade: " << CITY.getValor() << endl;
     }
     catch(invalid_argument exp){
         cout << exp.what() << endl;

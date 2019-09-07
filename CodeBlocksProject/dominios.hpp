@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//Declara��o de Classes
+//Declaracao de Classes.
 
 class Dominio {
     private:
@@ -20,6 +20,7 @@ class Dominio {
         static bool CaracterLetra(char);
 };
 
+//Ultilizacao de heranca para o atributo valor de Dominios e os metodos, set, get e validar.
 class Assento : public Dominio{
     private:
         void validar(string);
@@ -27,6 +28,7 @@ class Assento : public Dominio{
 
 class Bagagem : public Dominio{
     private:
+        //Declarando o Tamanho do "vetor" string.
         const static int TAMANHO = 1;
         void validar(string);
 };
