@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1567623996 source:c:\users\dell\desktop\lista 1 tp1\dominios.cpp
+	"dominios.hpp"
+
+1567508007 source:c:\users\dell\desktop\lista 1 tp1\entidades.cpp
+
+1567622674 source:c:\users\dell\desktop\lista 1 tp1\testes.cpp
+
+1567624438 c:\users\dell\desktop\lista 1 tp1\dominios.hpp
+	<string>
+
+1567624415 source:c:\users\dell\desktop\lista 1 tp1\main.cpp
+	<iostream>
+	"dominios.hpp"
+
