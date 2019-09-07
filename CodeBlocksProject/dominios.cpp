@@ -51,7 +51,7 @@ bool Dominio::CaracterLetra(char ch){
 
 void Cidade::validar(string valor){
     int i;
-    if (!Cidade::CaracterLetra(valor[0]) || (valor[0] != ' ')){
+    if (!Cidade::CaracterLetra(valor[0]) && (valor[0] != ' ')){
         throw invalid_argument("Nome de cidade inválido.");
     }
     for (i = 1 ; i < valor.size(); i++){
