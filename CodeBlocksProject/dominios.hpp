@@ -58,7 +58,8 @@ class Cidade : public Dominio{
 };
 
 class CPF : public Dominio{
-    public:
+    private:
+        const static int TAMANHO = 11;
         void validar(string);
 };
 

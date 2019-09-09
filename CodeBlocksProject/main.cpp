@@ -11,9 +11,10 @@ int main(){
     CodigoDeCarona CC;
     CodigoDeReserva CR;
     Cidade CITY;
-    string a, b, cb, cc, cr, city;
+    CPF CF;
+    string a, b, cb, cc, cr, city, cf;
     cout << "Entre os valores para os dominios na ordem." << endl;
-    cin >> a >> b >> cb >> cc >> cr >> city;
+    cin >> a >> b >> cb >> cc >> cr >> city >> cf;
     cout << Dominio::CaracterLetra(city[2]) << city[3] << city.size() << endl;
     try{
         A.setValor(a);
@@ -28,7 +29,9 @@ int main(){
         cout << "Codigo de reserva: " << CR.getValor() << endl;
         CITY.setValor(city);
         cout << "Nome da cidade: " << CITY.getValor() << endl;
-    }
+        CF.setValor(cf);
+        cout << "Numero de CPF: " << CF.getValor() << endl;
+     }
     catch(invalid_argument exp){
         cout << exp.what() << endl;
     }

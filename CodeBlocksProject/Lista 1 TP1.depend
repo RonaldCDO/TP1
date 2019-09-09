@@ -15,18 +15,22 @@
 
 1567892622 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\entidades.cpp
 
-1567895164 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\main.cpp
+1567988476 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\main.cpp
 	<iostream>
 	<string>
 	"dominios.hpp"
 
-1567895829 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.hpp
+1567987538 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.hpp
 	<iostream>
 	<string>
 	<stdexcept>
 
-1567892622 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testes.cpp
+1567897346 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testes.cpp
+	"testes.hpp"
 
-1567896895 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.cpp
+1567989364 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.cpp
+	"dominios.hpp"
+
+1567897344 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testes.hpp
 	"dominios.hpp"
 

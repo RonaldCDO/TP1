@@ -25,7 +25,7 @@ void Assento::validar(string valor){
 
 void Bagagem::validar(string valor){
     int qtdDeBagagens = stoi(valor);
-    if ((qtdDeBagagens < 0) || (qtdDeBagagens > 4) || (valor.size() > TAMANHO)){
+    if ((qtdDeBagagens < 0) || (qtdDeBagagens > 4) || (valor.size() != TAMANHO)){
         throw invalid_argument("Quantidade inadequada de bagagens.");
     }
 }
@@ -33,15 +33,15 @@ void Bagagem::validar(string valor){
 void CodigoDeBanco::validar(string valor){
     int codigoDeBanco = stoi(valor);
     const int LIMITE_INF = 0, LIMITE_SUP = 999;
-    if ((codigoDeBanco < LIMITE_INF) || (codigoDeBanco > LIMITE_SUP) || (valor.size() > TAMANHO)){
-        throw invalid_argument("Código de banco inválido.");
+    if ((codigoDeBanco < LIMITE_INF) || (codigoDeBanco > LIMITE_SUP) || (valor.size() != TAMANHO)){
+        throw invalid_argument("Codigo de banco invalido.");
     }
 }
 
 void CodigoDeCarona::validar(string valor){
     int codigoDeCarona = stoi(valor);
     const int LIMITE_SUP = 9999, LIMITE_INF = 0;
-    if ((codigoDeCarona < LIMITE_INF) || (codigoDeCarona > LIMITE_SUP) || (valor.size() > TAMANHO)){
+    if ((codigoDeCarona < LIMITE_INF) || (codigoDeCarona > LIMITE_SUP) || (valor.size() != TAMANHO)){
         throw invalid_argument("Codigo de carona invalido.");
     }
 }
@@ -49,7 +49,7 @@ void CodigoDeCarona::validar(string valor){
 void CodigoDeReserva::validar(string valor){
     int codigoDeReserva = stoi(valor);
     const int LIMITE_SUP = 99999, LIMITE_INF = 0;
-    if ((codigoDeReserva < LIMITE_INF) || (codigoDeReserva > LIMITE_SUP) || (valor.size() > TAMANHO)){
+    if ((codigoDeReserva < LIMITE_INF) || (codigoDeReserva > LIMITE_SUP) || (valor.size() != TAMANHO)){
         throw invalid_argument("Codigo de reserva invalido.");
     }
 }
@@ -77,6 +77,39 @@ void Cidade::validar(string valor){
 }
 
 void CPF::validar(string valor){
+    int cpf = stoi(valor), digitoVerificador1,
+    digitoVerificador2, temporario = 0, i, LIMITE_SUP = 99999999999,
+    LIMITE_INF = 0;
+
+    if ((cpf < LIMITE_INF) || (cpf > LIMITE_SUP) || (valor.size() != TAMANHO))
+        throw invalid_argument("Numero de CPF invalido.");
+
+    for(i =0; i< 9; i++)
+        temporario += (valor[i] * (10-i));
+
+    temporario %= 11;
+
+    if(temporario < 2)
+        digitoVerificador1 = 0;
+    else
+        digitoVerificador1 = (11 - temporario);
+
+    temporario = 0;
+
+    for(i = 0; i< 10; i++)
+        temporario += (valor[i] * (11 - i));
+
+    temporario %= 11;
+
+    if(temporario < 2)
+        digitoVerificador2 = 0;
+    else
+        digitoVerificador2 = 11 - temporario;
+
+    if (digitoVerificador1 != valor[9] && digitoVerificador2 != valor[10])
+        throw invalid_argument("Numero de CPF invalido.");
+
+
 }
 
 void Data::validar(string valor){
