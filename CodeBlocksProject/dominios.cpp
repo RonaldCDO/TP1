@@ -77,39 +77,73 @@ void Cidade::validar(string valor){
 }
 
 void CPF::validar(string valor){
-    int cpf = stoi(valor), digitoVerificador1,
-    digitoVerificador2, temporario = 0, i, LIMITE_SUP = 99999999999,
-    LIMITE_INF = 0;
+    int i, POS_HIFEN;
+    int POS_PONTO[2];
 
-    if ((cpf < LIMITE_INF) || (cpf > LIMITE_SUP) || (valor.size() != TAMANHO))
+    POS_PONTO[0] = 3;           //Posicionamento dos pontos e dos hífens para um CPF correto.
+    POS_PONTO[1] = 7;
+    POS_HIFEN = 11;
+
+    if (valor.size() != TAMANHO){
         throw invalid_argument("Numero de CPF invalido.");
+    }
 
-    for(i =0; i< 9; i++)
-        temporario += (valor[i] * (10-i));
-
-    temporario %= 11;
-
-    if(temporario < 2)
-        digitoVerificador1 = 0;
-    else
-        digitoVerificador1 = (11 - temporario);
-
-    temporario = 0;
-
-    for(i = 0; i< 10; i++)
-        temporario += (valor[i] * (11 - i));
-
-    temporario %= 11;
-
-    if(temporario < 2)
-        digitoVerificador2 = 0;
-    else
-        digitoVerificador2 = 11 - temporario;
-
-    if (digitoVerificador1 != valor[9] && digitoVerificador2 != valor[10])
+    if ((valor[POS_PONTO[0]] != '.') || (valor[POS_PONTO[1]] != '.') || (valor[POS_HIFEN] != '-')){
         throw invalid_argument("Numero de CPF invalido.");
+    }
 
+    for (i = 3; i > 0; i--){
+        valor.erase(valor.begin() + ((4*i) - 1));             //Remove os '.' e '-' da string;
+    }
 
+    int TamanhoVetorDig = valor.size();                       //Agora o tamanho do CPF é 11;
+    int DigitosVerificadores[TamanhoVetorDig], Verificador[2];
+    int DigitoInt; 
+    int Soma = 0;
+    bool TesteDigitos[2];
+
+    for (i = 0; i < valor.size(); i++){
+        if (!((valor[i] >= '0') && (valor[i] <= '9'))){
+            throw invalid_argument("Numero de CPF invalido.");          //Verifica se os caracteres restantes são números;
+        }
+    }
+
+    for (i = 0; i < (TamanhoVetorDig - 2); i++){                        //Executa o algoritmo de vericação para o primeiro dígito.
+        DigitoInt = (int)(valor[i] - '0');
+        DigitosVerificadores[i] = DigitoInt * (10 - i);
+        Soma += DigitosVerificadores[i];
+    }
+
+    if ((Soma % 11) < 2){
+        DigitosVerificadores[TamanhoVetorDig-2] = 0;
+        Verificador[0] = 0;
+    }
+    else{
+        DigitosVerificadores[TamanhoVetorDig-2] = 11 - (Soma % 11);
+        Verificador[0] = 11 - (Soma % 11);
+    }
+
+    Soma = 0;
+
+    for (i = 0; i < (TamanhoVetorDig - 1); i++){                        //Executa a verificação para o segundo dígito
+        DigitoInt = (int)(valor[i] - '0');
+        DigitosVerificadores[i] = DigitoInt * (11 - i);
+        Soma += DigitosVerificadores[i];
+    }
+
+    if ((Soma % 11) < 2){
+        Verificador[1] = 0;
+    }
+    else{
+        Verificador[1] = 11 - (Soma % 11);
+    }
+
+    TesteDigitos[0] = ((int)(valor[valor.size()-2] - '0') != Verificador[0]);       //Compara os digitos verificadores digitados pelo usuário 
+    TesteDigitos[1] = ((int)(valor[valor.size()-1] - '0') != Verificador[1]);       // com os obtidos pelo algoritmo.
+
+    if (TesteDigitos[0] || TesteDigitos[1]){
+        throw invalid_argument("Combinacao numerica invalida para CPF.");
+    }
 }
 
 void Data::validar(string valor){
