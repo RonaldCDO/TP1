@@ -1,4 +1,7 @@
 #include "dominios.hpp"
+#include <vector>
+#include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -112,10 +115,8 @@ void CPF::validar(string valor){
     int Soma = 0;
     bool TesteDigitos[2];
 
-    for (i = 0; i < valor.size(); i++){
-        if (!((valor[i] >= '0') && (valor[i] <= '9'))){
-            throw invalid_argument("Numero de CPF invalido.");          //Verifica se os caracteres restantes são números;
-        }
+    if (!(Data::StringNumerica(valor))){                        //Verifica se os caracteres restantes são números;
+        throw invalid_argument("Numero de CPF invalido.");
     }
 
     for (i = 0; i < (TamanhoVetorDig - 2); i++){                        //Executa o algoritmo de vericação para o primeiro dígito.
@@ -142,7 +143,9 @@ void CPF::validar(string valor){
     }
 
     if ((Soma % 11) < 2){
-        Verificador[1] = 0;
+        Verificador[1] = 0;    Data D;
+    string d;
+    cin >> d;
     }
     else{
         Verificador[1] = 11 - (Soma % 11);
@@ -173,10 +176,59 @@ void Data::validar(string valor){
     valor.erase(valor.begin() + POS_BARRA[1]);          //Remove as barras da string data
     valor.erase(valor.begin() + POS_BARRA[0]);
 
-    if (!(Data::StringNumerica(valor))){
+    if (!(Data::StringNumerica(valor))){                //Verifica se os caracteres restantes são numeros
         throw invalid_argument("Formato de data inadequado.");
     }
 
+    const int POS_DIA = 0, POS_MES = 2, POS_ANO = 4;
+    const int TAMANHO_DIA = 2, TAMANHO_MES = 2, TAMANHO_ANO = 4;
+
+    int dia = stoi(valor.substr(POS_DIA,TAMANHO_DIA));  //Obtencao dos valores para dia, mes e ano
+    int mes = stoi(valor.substr(POS_MES,TAMANHO_MES));
+    int ano = stoi(valor.substr(POS_ANO,TAMANHO_ANO));
+    
+    if ((ano < 2000) || (ano > 2099)){
+        throw invalid_argument("Ano invalido: deve ser entre 2000 e 2099");
+    }
+
+    if ((mes < 1) || (mes > 12)){
+        throw invalid_argument("Mes invalido: deve ser entre 1 e 12");
+    }
+    
+    vector<int> meses31 = {1,3,5,7,8,10,12};
+    vector<int> meses30 = {4,6,9,11};
+
+    string errorMessage;
+    
+    if (count(meses31.begin(),meses31.end(),mes)){
+        if ((dia < 1) || (dia > 31)){
+            errorMessage = "O mes " + to_string(mes) + " tem dias de 1 a 31";
+            throw invalid_argument(errorMessage);
+        }
+    }
+
+    else {
+        if (count(meses30.begin(),meses30.end(),mes)){
+            if ((dia < 1) || (dia > 30)){
+                throw invalid_argument("O mes " + to_string(mes) + " tem dias de 1 a 30");
+            }
+        }
+
+        else {
+            if (mes == 2){
+                if (ano % 4 == 0){
+                    if ((dia < 1) || (dia > 29)){
+                        throw invalid_argument("O ano " + to_string(ano) + " é bissexto. O mes 2 comtempla dias de 1 a 29.");
+                    }
+                }
+                else {
+                    if ((dia < 1) || (dia > 28)){
+                        throw invalid_argument("O ano " + to_string(ano) + " não é bissexto. Portanto, o mes 2 so comtempla dias de 1 a 28.");
+                    }
+                }
+            }
+        }
+    }
 }
 
 void Duracao::validar(string valor){

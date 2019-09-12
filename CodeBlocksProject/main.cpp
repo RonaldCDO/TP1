@@ -5,18 +5,20 @@
 using namespace std;
 
 int main(){
-    Assento A;
+    /*Assento A;
     Bagagem B;
     CodigoDeBanco CB;
     CodigoDeCarona CC;
     CodigoDeReserva CR;
-    Cidade CITY;
+    Cidade CITY;*/
     CPF CF;
-    string a, b, cb, cc, cr, city, cf;
+    Data D;
+    string a, b, cb, cc, cr, city, cf, d;
     cout << "Entre os valores para os dominios na ordem." << endl;
-    cin >> a >> b >> cb >> cc >> cr >> city >> cf;
+    //cin >> a >> b >> cb >> cc >> cr >> city >> cf >> d;
+    cin >> cf >> d;
     try{
-        A.setValor(a);
+        /*A.setValor(a);
         cout << "Assento selecionado: " << A.getValor() << endl;
         B.setValor(b);
         cout << "Quantidade de malas escolhida: " << B.getValor() << endl;
@@ -27,9 +29,11 @@ int main(){
         CR.setValor(cr);
         cout << "Codigo de reserva: " << CR.getValor() << endl;
         CITY.setValor(city);
-        cout << "Nome da cidade: " << CITY.getValor() << endl;
+        cout << "Nome da cidade: " << CITY.getValor() << endl;*/
         CF.setValor(cf);
         cout << "Numero de CPF: " << CF.getValor() << endl;
+        D.setValor(d);
+        cout << "Data salva: " << D.getValor() << endl; 
     }
     catch(invalid_argument exp){
         cout << exp.what() << endl;
