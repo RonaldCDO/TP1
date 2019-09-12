@@ -11,12 +11,12 @@ int main(){
     CodigoDeCarona CC;
     CodigoDeReserva CR;
     Cidade CITY;*/
-    CPF CF;
+    //CPF CF;
     Data D;
     string a, b, cb, cc, cr, city, cf, d;
     cout << "Entre os valores para os dominios na ordem." << endl;
     //cin >> a >> b >> cb >> cc >> cr >> city >> cf >> d;
-    cin >> cf >> d;
+    cin >> d;
     try{
         /*A.setValor(a);
         cout << "Assento selecionado: " << A.getValor() << endl;
@@ -29,9 +29,9 @@ int main(){
         CR.setValor(cr);
         cout << "Codigo de reserva: " << CR.getValor() << endl;
         CITY.setValor(city);
-        cout << "Nome da cidade: " << CITY.getValor() << endl;*/
+        cout << "Nome da cidade: " << CITY.getValor() << endl;
         CF.setValor(cf);
-        cout << "Numero de CPF: " << CF.getValor() << endl;
+        cout << "Numero de CPF: " << CF.getValor() << endl;*/
         D.setValor(d);
         cout << "Data salva: " << D.getValor() << endl; 
     }

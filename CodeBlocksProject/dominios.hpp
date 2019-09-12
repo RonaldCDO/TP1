@@ -71,51 +71,51 @@ class Data : public Dominio{
 };
 
 class Duracao : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Estado : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Email : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Nome : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class NumeroDeAgencia: public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class NumeroDeConta : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Preco : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Telefone : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Senha : public Dominio{
-    public:
+    private:
         void validar(string);
 };
 
 class Vagas : public Dominio{
-    public:
+    private:
         void validar(string);
 };

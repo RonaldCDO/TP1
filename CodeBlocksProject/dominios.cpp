@@ -186,13 +186,20 @@ void Data::validar(string valor){
     int dia = stoi(valor.substr(POS_DIA,TAMANHO_DIA));  //Obtencao dos valores para dia, mes e ano
     int mes = stoi(valor.substr(POS_MES,TAMANHO_MES));
     int ano = stoi(valor.substr(POS_ANO,TAMANHO_ANO));
+
+    const int LIMITE_SUP_ANO = 2099;
+    const int LIMITE_INF_ANO = 2000;
+    const int LIMITE_INF = 1;
+    const int LIMITE_SUP_MES = 12;
+    const int FEVEREIRO = 2;
+    bool bissexto = (ano % 4 == 0);
     
-    if ((ano < 2000) || (ano > 2099)){
-        throw invalid_argument("Ano invalido: deve ser entre 2000 e 2099");
+    if ((ano < LIMITE_INF_ANO) || (ano > LIMITE_SUP_ANO)){
+        throw invalid_argument("Ano invalido: deve ser entre " + to_string(LIMITE_INF_ANO) + " e " + to_string(LIMITE_SUP_ANO));
     }
 
-    if ((mes < 1) || (mes > 12)){
-        throw invalid_argument("Mes invalido: deve ser entre 1 e 12");
+    if ((mes < LIMITE_INF) || (mes > LIMITE_SUP_MES)){
+        throw invalid_argument("Mes invalido: deve ser entre " + to_string(LIMITE_INF) + " e " + to_string(LIMITE_SUP_MES));
     }
     
     vector<int> meses31 = {1,3,5,7,8,10,12};
@@ -201,7 +208,7 @@ void Data::validar(string valor){
     string errorMessage;
     
     if (count(meses31.begin(),meses31.end(),mes)){
-        if ((dia < 1) || (dia > 31)){
+        if ((dia < LIMITE_INF) || (dia > 31)){
             errorMessage = "O mes " + to_string(mes) + " tem dias de 1 a 31";
             throw invalid_argument(errorMessage);
         }
@@ -209,20 +216,20 @@ void Data::validar(string valor){
 
     else {
         if (count(meses30.begin(),meses30.end(),mes)){
-            if ((dia < 1) || (dia > 30)){
+            if ((dia < LIMITE_INF) || (dia > 30)){
                 throw invalid_argument("O mes " + to_string(mes) + " tem dias de 1 a 30");
             }
         }
 
         else {
-            if (mes == 2){
-                if (ano % 4 == 0){
-                    if ((dia < 1) || (dia > 29)){
+            if (mes == FEVEREIRO){
+                if (bissexto){
+                    if ((dia < LIMITE_INF) || (dia > 29)){
                         throw invalid_argument("O ano " + to_string(ano) + " é bissexto. O mes 2 comtempla dias de 1 a 29.");
                     }
                 }
                 else {
-                    if ((dia < 1) || (dia > 28)){
+                    if ((dia < LIMITE_INF) || (dia > 28)){
                         throw invalid_argument("O ano " + to_string(ano) + " não é bissexto. Portanto, o mes 2 so comtempla dias de 1 a 28.");
                     }
                 }
@@ -232,6 +239,9 @@ void Data::validar(string valor){
 }
 
 void Duracao::validar(string valor){
+    /*int duracao = stoi(valor);
+
+    if ((duracao < 1) || (duracao > ))*/
 }
 
 void Estado::validar(string valor){
