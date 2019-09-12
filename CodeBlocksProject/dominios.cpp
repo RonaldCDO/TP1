@@ -16,6 +16,16 @@ bool Dominio::CaracterLetra(char ch){
         return false;
 }
 
+bool Dominio::StringNumerica(string valor){
+    int i;
+    for (i = 0; i < valor.size(); i++){
+        if (!((valor[i] >= '0') && (valor[i] <= '9'))){
+            return false;          
+        }
+    }
+    return true;
+}
+
 //Definicao dos metodos validar especificos de cada Classe
 void Assento::validar(string valor){
     if((valor != "D") && (valor != "T")){
@@ -147,6 +157,26 @@ void CPF::validar(string valor){
 }
 
 void Data::validar(string valor){
+    int POS_BARRA[2];
+
+    POS_BARRA[0] = 2;
+    POS_BARRA[1] = 5;
+
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("Formato de data inadequado.");
+    }
+
+    if ((valor[POS_BARRA[0]] != '/') || (valor[POS_BARRA[1]] != '/')){
+        throw invalid_argument("Formato de data inadequado.");
+    }
+
+    valor.erase(valor.begin() + POS_BARRA[1]);          //Remove as barras da string data
+    valor.erase(valor.begin() + POS_BARRA[0]);
+
+    if (!(Data::StringNumerica(valor))){
+        throw invalid_argument("Formato de data inadequado.");
+    }
+
 }
 
 void Duracao::validar(string valor){

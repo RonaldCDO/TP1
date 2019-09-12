@@ -18,6 +18,7 @@ class Dominio {
             return valor;
         }
         static bool CaracterLetra(char);
+        static bool StringNumerica(string);
 };
 
 //Ultilizacao de heranca para o atributo valor de Dominios e os metodos, set, get e validar.
@@ -64,7 +65,8 @@ class CPF : public Dominio{
 };
 
 class Data : public Dominio{
-    public:
+    private:
+        const static int TAMANHO = 10;
         void validar(string);
 };
 
