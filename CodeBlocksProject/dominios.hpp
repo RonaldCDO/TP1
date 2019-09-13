@@ -77,6 +77,7 @@ class Duracao : public Dominio{
 
 class Estado : public Dominio{
     private:
+        const static int TAMANHO = 2;
         void validar(string);
 };
 

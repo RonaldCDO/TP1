@@ -45,24 +45,24 @@ void Bagagem::validar(string valor){
 
 void CodigoDeBanco::validar(string valor){
     int codigoDeBanco = stoi(valor);
-    const int LIMITE_INF = 0, LIMITE_SUP = 999;
-    if ((codigoDeBanco < LIMITE_INF) || (codigoDeBanco > LIMITE_SUP) || (valor.size() != TAMANHO)){
+    const int DIA_MES_MIN = 0, LIMITE_SUP = 999;
+    if ((codigoDeBanco < DIA_MES_MIN) || (codigoDeBanco > LIMITE_SUP) || (valor.size() != TAMANHO)){
         throw invalid_argument("Codigo de banco invalido.");
     }
 }
 
 void CodigoDeCarona::validar(string valor){
     int codigoDeCarona = stoi(valor);
-    const int LIMITE_SUP = 9999, LIMITE_INF = 0;
-    if ((codigoDeCarona < LIMITE_INF) || (codigoDeCarona > LIMITE_SUP) || (valor.size() != TAMANHO)){
+    const int LIMITE_SUP = 9999, DIA_MES_MIN = 0;
+    if ((codigoDeCarona < DIA_MES_MIN) || (codigoDeCarona > LIMITE_SUP) || (valor.size() != TAMANHO)){
         throw invalid_argument("Codigo de carona invalido.");
     }
 }
 
 void CodigoDeReserva::validar(string valor){
     int codigoDeReserva = stoi(valor);
-    const int LIMITE_SUP = 99999, LIMITE_INF = 0;
-    if ((codigoDeReserva < LIMITE_INF) || (codigoDeReserva > LIMITE_SUP) || (valor.size() != TAMANHO)){
+    const int LIMITE_SUP = 99999, DIA_MES_MIN = 0;
+    if ((codigoDeReserva < DIA_MES_MIN) || (codigoDeReserva > LIMITE_SUP) || (valor.size() != TAMANHO)){
         throw invalid_argument("Codigo de reserva invalido.");
     }
 }
@@ -187,19 +187,19 @@ void Data::validar(string valor){
     int mes = stoi(valor.substr(POS_MES,TAMANHO_MES));
     int ano = stoi(valor.substr(POS_ANO,TAMANHO_ANO));
 
-    const int LIMITE_SUP_ANO = 2099;
-    const int LIMITE_INF_ANO = 2000;
-    const int LIMITE_INF = 1;
-    const int LIMITE_SUP_MES = 12;
+    const int ANO_MAX = 2099;
+    const int ANO_MIN = 2000;
+    const int DIA_MES_MIN = 1;
+    const int MES_MAX = 12;
     const int FEVEREIRO = 2;
     bool bissexto = (ano % 4 == 0);
     
-    if ((ano < LIMITE_INF_ANO) || (ano > LIMITE_SUP_ANO)){
-        throw invalid_argument("Ano invalido: deve ser entre " + to_string(LIMITE_INF_ANO) + " e " + to_string(LIMITE_SUP_ANO));
+    if ((ano < ANO_MIN) || (ano > ANO_MAX)){
+        throw invalid_argument("Ano invalido: deve ser entre " + to_string(ANO_MIN) + " e " + to_string(ANO_MAX));
     }
 
-    if ((mes < LIMITE_INF) || (mes > LIMITE_SUP_MES)){
-        throw invalid_argument("Mes invalido: deve ser entre " + to_string(LIMITE_INF) + " e " + to_string(LIMITE_SUP_MES));
+    if ((mes < DIA_MES_MIN) || (mes > MES_MAX)){
+        throw invalid_argument("Mes invalido: deve ser entre " + to_string(DIA_MES_MIN) + " e " + to_string(MES_MAX));
     }
     
     vector<int> meses31 = {1,3,5,7,8,10,12};
@@ -208,7 +208,7 @@ void Data::validar(string valor){
     string errorMessage;
     
     if (count(meses31.begin(),meses31.end(),mes)){
-        if ((dia < LIMITE_INF) || (dia > 31)){
+        if ((dia < DIA_MES_MIN) || (dia > 31)){
             errorMessage = "O mes " + to_string(mes) + " tem dias de 1 a 31";
             throw invalid_argument(errorMessage);
         }
@@ -216,7 +216,7 @@ void Data::validar(string valor){
 
     else {
         if (count(meses30.begin(),meses30.end(),mes)){
-            if ((dia < LIMITE_INF) || (dia > 30)){
+            if ((dia < DIA_MES_MIN) || (dia > 30)){
                 throw invalid_argument("O mes " + to_string(mes) + " tem dias de 1 a 30");
             }
         }
@@ -224,12 +224,12 @@ void Data::validar(string valor){
         else {
             if (mes == FEVEREIRO){
                 if (bissexto){
-                    if ((dia < LIMITE_INF) || (dia > 29)){
-                        throw invalid_argument("O ano " + to_string(ano) + " é bissexto. O mes 2 comtempla dias de 1 a 29.");
+                    if ((dia < DIA_MES_MIN) || (dia > 29)){
+                        throw invalid_argument("O ano " + to_string(ano) + " é bissexto. O mes " + to_string(FEVEREIRO) + " comtempla dias de 1 a 29.");
                     }
                 }
                 else {
-                    if ((dia < LIMITE_INF) || (dia > 28)){
+                    if ((dia < DIA_MES_MIN) || (dia > 28)){
                         throw invalid_argument("O ano " + to_string(ano) + " não é bissexto. Portanto, o mes 2 so comtempla dias de 1 a 28.");
                     }
                 }
@@ -239,12 +239,32 @@ void Data::validar(string valor){
 }
 
 void Duracao::validar(string valor){
-    /*int duracao = stoi(valor);
+    int duracao = stoi(valor);
 
-    if ((duracao < 1) || (duracao > ))*/
+    const int LIMITE_SUP = 48;
+    const int LIMITE_INF = 1;
+
+    if ((duracao < LIMITE_INF) || (duracao > LIMITE_SUP)){
+        throw invalid_argument("Duracao invalida. Deve ser de " + to_string(LIMITE_INF) + " a " + to_string(LIMITE_SUP) + " horas");
+    }
+
+    bool horaInteira = (stof(valor) - stoi(valor) == 0);
+
+    if (!horaInteira){
+        throw invalid_argument("A duracao deve ser um valor inteiro em horas.");
+    }
 }
 
 void Estado::validar(string valor){
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("A sigla para o estado deve ser duas letras maiusculas.");
+    }
+
+    vector<string> estados = {"AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"};
+
+    if (!(count(estados.begin(),estados.end(),valor))){
+        throw invalid_argument("Sigla para estado invalida.");
+    }
 }
 
 void Email::validar(string valor){
