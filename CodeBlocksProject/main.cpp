@@ -13,12 +13,13 @@ int main(){
     Cidade CITY;
     CPF CF;
     Data D;
-    Duracao DR;*/
-    Estado E;
-    string a, b, cb, cc, cr, city, cf, d, dr, e;
+    Duracao DR;
+    Estado E;*/
+    Email EM;
+    string a, b, cb, cc, cr, city, cf, d, dr, e, em;
     cout << "Entre os valores para os dominios na ordem." << endl;
     //cin >> a >> b >> cb >> cc >> cr >> city >> cf >> d;
-    cin >> e;
+    cin >> em;
     try{
         /*A.setValor(a);
         cout << "Assento selecionado: " << A.getValor() << endl;
@@ -37,9 +38,11 @@ int main(){
         D.setValor(d);
         cout << "Data salva: " << D.getValor() << endl;
         DR.setValor(dr);
-        cout << "Duracao da viagem: " << DR.getValor() << endl;*/
+        cout << "Duracao da viagem: " << DR.getValor() << endl;
         E.setValor(e);
-        cout << "Estado selecionado: " << E.getValor() << endl;
+        cout << "Estado selecionado: " << E.getValor() << endl;*/
+        EM.setValor(em);
+        cout << "E-mail configurado: " << EM.getValor() << endl;
     }
     catch(invalid_argument exp){
         cout << exp.what() << endl;

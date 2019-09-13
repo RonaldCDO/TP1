@@ -268,6 +268,57 @@ void Estado::validar(string valor){
 }
 
 void Email::validar(string valor){
+    const int TAMANHO_MAX_EMAIL = 41;
+
+    if (valor.size() > TAMANHO_MAX_EMAIL){
+        throw invalid_argument("Tamanho de e-mail excedido.");
+    }
+
+    char arroba = '@';
+    size_t posArroba = valor.find(arroba);
+
+    if (posArroba == string::npos){
+        throw invalid_argument("O e-mail deve ter local e dominio separados por " + string(1,arroba) + ".");
+    }
+
+    stringstream email(valor);
+    string elementoEmail;
+    vector<string> localEDominio;
+    const int TAMANHO_MAX_ELEMENTO = 20;
+    char ponto = '.';
+    string doisPontos = "..";
+
+    size_t posDoisPontos = valor.find(doisPontos);
+
+    if (posDoisPontos != string::npos){
+        throw invalid_argument("Nao e permitido dois pontos em sequencia.");
+    }
+
+    while(getline(email, elementoEmail, arroba)){
+        localEDominio.push_back(elementoEmail);
+    }
+
+    if ((localEDominio[0].size() > TAMANHO_MAX_ELEMENTO) || (localEDominio[1].size() > TAMANHO_MAX_ELEMENTO)){
+        throw invalid_argument("O local e o dominio so podem conter ate " + to_string(TAMANHO_MAX_ELEMENTO) + " caracteres.");
+    }
+
+    if ((localEDominio[0].front() == ponto) || (localEDominio[0].back() == ponto)){
+        throw invalid_argument("A parte 'local' do e-mail nao pode iniciar e nem terminar com ponto.");
+    }
+
+    if (localEDominio[1].front() == ponto){
+        throw invalid_argument("Nao e permitido que o dominio se inicie com ponto.");
+    }
+
+    int i;
+
+    for(i = 0; i < 2; i++){
+        for(string::iterator it = localEDominio[i].begin(); it <= localEDominio[i].end(); it++){
+            if (!((*it >= 'a') || (*it <= 'z') || (*it == ponto))){
+                throw invalid_argument("Caracter invalido. E permitido apenas o ponto final e letras de a-z.");
+            }
+        }
+    }
 }
 
 void Nome::validar(string valor){
