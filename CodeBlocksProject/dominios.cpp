@@ -143,9 +143,7 @@ void CPF::validar(string valor){
     }
 
     if ((Soma % 11) < 2){
-        Verificador[1] = 0;    Data D;
-    string d;
-    cin >> d;
+        Verificador[1] = 0;
     }
     else{
         Verificador[1] = 11 - (Soma % 11);
@@ -314,7 +312,7 @@ void Email::validar(string valor){
 
     for(i = 0; i < 2; i++){
         for(string::iterator it = localEDominio[i].begin(); it <= localEDominio[i].end(); it++){
-            if (!((*it >= 'a') || (*it <= 'z') || (*it == ponto))){
+            if (!(((*it >= 'a') && (*it <= 'z')) || (*it == ponto))){
                 throw invalid_argument("Caracter invalido. E permitido apenas o ponto final e letras de a-z.");
             }
         }
@@ -322,9 +320,43 @@ void Email::validar(string valor){
 }
 
 void Nome::validar(string valor){
+    const int TAMANHO_MAX = 20;
+
+    if (valor.size() > TAMANHO_MAX){
+        throw invalid_argument("O nome só pode ter até " + to_string(TAMANHO_MAX) + " caracteres.");
+    }
+
+    char ponto = '.';
+    char espaco = ' ';
+
+    if (valor == string(1,espaco)){
+        throw invalid_argument("O nome deve conter letras.");
+    }
+
+    for (string::iterator it = valor.begin(); it < valor.end(); it++){
+
+        if (!(Nome::CaracterLetra(*it) || (*it == ponto) || (*it == espaco))){
+            cout << *it << endl;
+            throw invalid_argument("O nome so deve conter letras, ponto ou espaço.");
+        }
+
+        // Ao encontrar um ponto, verificar se este e precedido por letra ou inicia o nome.
+        if ((*it == ponto) && (!(Nome::CaracterLetra(*(it-1))) || (it == valor.begin()))){
+            throw invalid_argument("Os pontos devem estar precedidos de letras.");
+        }
+    }
+
+    string doisEspacos = "  ";
+
+    size_t posDoisEspacos = valor.find(doisEspacos);
+
+    if (posDoisEspacos != string::npos){
+        throw invalid_argument("Nao deve haver espaços em sequencia.");
+    }
 }
 
 void NumeroDeAgencia::validar(string valor){
+    
 }
 
 void NumeroDeConta::validar(string valor){
