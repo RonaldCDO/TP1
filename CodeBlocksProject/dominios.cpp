@@ -29,6 +29,43 @@ bool Dominio::StringNumerica(string valor){
     return true;
 }
 
+bool Dominio::AlgoritmoDeLuhn(string valor){
+    const int ultimaPos = valor.size() - 2;             //O ultimo digito a ser verificado e o penultimo da string
+    const int teto = 10;                                //Nao podem conter 2 algarismos
+    int numero, numeroDobrado, i;
+    int soma = 0;
+
+    for (i = ultimaPos; i >= 0; i--){
+        numero = (int)(valor[i] - '0');
+
+        if ((valor.size() - i) % 2 == 0){               //O processo de duplicar acontece a cada dois digitos
+
+            numeroDobrado = 2 * numero;
+
+            if (numeroDobrado >= teto){
+                numero = numeroDobrado - 9; 
+            }
+
+            else {
+                numero = numeroDobrado;
+            }
+        }
+
+        soma += numero;
+    }
+
+    int unidade = (soma % teto);
+    int verificador = (int)(valor[valor.size() - 1] - '0');
+
+    if ((teto - unidade) == verificador){
+        return true;
+    }
+
+    else {
+        return false;
+    }
+}
+
 //Definicao dos metodos validar especificos de cada Classe
 void Assento::validar(string valor){
     if((valor != "D") && (valor != "T")){
@@ -356,10 +393,47 @@ void Nome::validar(string valor){
 }
 
 void NumeroDeAgencia::validar(string valor){
-    
+    const int POS_HIFEN = TAMANHO - 2;
+
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("Tamanho inadequado para Numero de Agencia.");
+    }
+
+    if (valor[POS_HIFEN] != '-'){
+        throw invalid_argument("O Numero de Agencia deve conter o formato NNNN-N, no qual N vai de 0 a 9.");
+    }
+
+    valor.erase(valor.begin() + POS_HIFEN);
+
+    if (!(NumeroDeAgencia::StringNumerica(valor))){
+        throw invalid_argument("Os dados do Numero de Agencia devem ser somente numericos");
+    }
+
+    if (!(NumeroDeAgencia::AlgoritmoDeLuhn(valor))){
+        throw invalid_argument("O digito verificador nao confere com o Algoritmo de Luhn.");
+    }
 }
 
 void NumeroDeConta::validar(string valor){
+    const int POS_HIFEN = TAMANHO - 2;
+
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("Tamanho inadequado para Numero de Conta.");
+    }
+
+    if (valor[POS_HIFEN] != '-'){
+        throw invalid_argument("O Numero de Conta deve conter o formato NNNNNN-N, no qual N vai de 0 a 9.");
+    }
+
+    valor.erase(valor.begin() + POS_HIFEN);
+
+    if (!(NumeroDeAgencia::StringNumerica(valor))){
+        throw invalid_argument("Os dados do Numero de Conta devem ser somente numericos");
+    }
+
+    if (!(NumeroDeAgencia::AlgoritmoDeLuhn(valor))){
+        throw invalid_argument("O digito verificador nao confere com o Algoritmo de Luhn.");
+    }
 }
 
 void Preco::validar(string valor){

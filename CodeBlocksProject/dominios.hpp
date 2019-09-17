@@ -19,6 +19,7 @@ class Dominio {
         }
         static bool CaracterLetra(char);
         static bool StringNumerica(string);
+        static bool AlgoritmoDeLuhn(string);
 };
 
 //Ultilizacao de heranca para o atributo valor de Dominios e os metodos, set, get e validar.
@@ -93,11 +94,13 @@ class Nome : public Dominio{
 
 class NumeroDeAgencia: public Dominio{
     private:
+        const static int TAMANHO = 6;
         void validar(string);
 };
 
 class NumeroDeConta : public Dominio{
     private:
+        const static int TAMANHO = 8;
         void validar(string);
 };
 

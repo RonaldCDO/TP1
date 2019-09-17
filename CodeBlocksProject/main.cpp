@@ -15,12 +15,15 @@ int main(){
     Data D;
     Duracao DR;
     Estado E;
-    Email EM;*/
-    Nome N;
-    string a, b, cb, cc, cr, city, cf, d, dr, e, em, n;
+    Email EM;
+    Nome N;*/
+    NumeroDeAgencia NA;
+    NumeroDeConta NC;
+    string a, b, cb, cc, cr, city, cf, d, dr, e, em, n, na, nc;
     cout << "Entre os valores para os dominios na ordem." << endl;
     //cin >> a >> b >> cb >> cc >> cr >> city >> cf >> d >> em;
-    getline(cin,n);         //Usado para incluir espaco na string;
+    //getline(cin,n);         //Usado para incluir espaco na string;
+    cin >> na >> nc;
     try{
         /*A.setValor(a);
         cout << "Assento selecionado: " << A.getValor() << endl;
@@ -43,9 +46,13 @@ int main(){
         E.setValor(e);
         cout << "Estado selecionado: " << E.getValor() << endl;
         EM.setValor(em);
-        cout << "E-mail configurado: " << EM.getValor() << endl;*/
+        cout << "E-mail configurado: " << EM.getValor() << endl;
         N.setValor(n);
-        cout << "Nome escolhido: " << N.getValor() << endl;
+        cout << "Nome escolhido: " << N.getValor() << endl;*/
+        NA.setValor(na);
+        cout << "Numero de Agencia: " << NA.getValor() << endl;
+        NC.setValor(nc);
+        cout << "Numero de Conta: " << NC.getValor() << endl;
     }
     catch(invalid_argument exp){
         cout << exp.what() << endl;
