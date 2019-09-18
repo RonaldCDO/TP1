@@ -111,6 +111,7 @@ class Preco : public Dominio{
 
 class Telefone : public Dominio{
     private:
+        const static int TAMANHO = 15;
         void validar(string);
 };
 

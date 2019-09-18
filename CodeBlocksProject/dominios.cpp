@@ -437,9 +437,52 @@ void NumeroDeConta::validar(string valor){
 }
 
 void Preco::validar(string valor){
+    const float PRECO_MIN = 1;
+    const float PRECO_MAX = 5000;
+    
+    float preco;
+    string::size_type sz;
+
+    try {
+        preco = stof(valor, &sz);
+    }
+    catch(exception& exp) {
+        throw invalid_argument("O preco deve ser um valor numerico.");
+    }
+
+    if ((preco < PRECO_MIN) || (preco > PRECO_MAX)){
+        throw invalid_argument("Preco deve estar entre 1 e 5000.");
+    }
 }
 
 void Telefone::validar(string valor){
+    vector<int> posHifen {2, 5};
+    char hifen = '-';
+
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("Tamanho inadequado para telefone.");
+    }
+
+    if ((valor[posHifen[0]] != hifen) || (valor[posHifen[1]] != hifen)){
+        throw invalid_argument("Codigo de pais, DDD e telefone combinam 13 digitos e devem estar separados por hifen.");
+    }
+
+    for (int i = (posHifen.size() - 1); i >= 0; i--){            //Apagar os hífens da string
+        valor.erase(valor.begin() + posHifen[i]);
+    }
+
+    if (!(Telefone::StringNumerica(valor))){
+        throw invalid_argument("Os codigos de telefone so aceitam digitos numericos de 0 a 9.");
+    }
+
+    int paisInit = 0;
+    int paisFim = 1;
+    int dddInit = 2;
+    int dddFim = 3;
+    int telefoneInit = 4;
+    int telefoneFim = 12;
+    
+     
 }
 
 void Senha::validar(string valor){
