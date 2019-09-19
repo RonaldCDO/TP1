@@ -476,18 +476,81 @@ void Telefone::validar(string valor){
     }
 
     int paisInit = 0;
-    int paisFim = 1;
+    int tamanhoPais = 2;
     int dddInit = 2;
-    int dddFim = 3;
+    int tamanhoDdd = 2;
     int telefoneInit = 4;
-    int telefoneFim = 12;
+    int tamanhoTelefone = 9;
+
+    string codigoPais = valor.substr(paisInit, tamanhoPais);
+    string ddd = valor.substr(dddInit, tamanhoDdd);
+    string telefone = valor.substr(telefoneInit, tamanhoTelefone); 
+
+    string doisZeros = "00";
+    string noveZeros = "000000000";
     
-     
+    if ((codigoPais == doisZeros) || (ddd == doisZeros) || (telefone == noveZeros)){
+        throw invalid_argument("O codigo de pais, o DDD e o numero de telefone nao podem ser compostos somente por '0's.");
+    }
 }
 
 void Senha::validar(string valor){
+    bool caracterLetra;
+    int caracterNumero;
+    int caracterEspecial;
+
+    bool existeLetra = false;
+    bool existeNumero = false;
+
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("A senha deve conter 5 caracteres distintos.");
+    }
+    
+    vector<char> caracteres {'#','$','%','&'};
+    vector<char> numeros {'0','1','2','3','4','5','6','7','8','9'};
+    size_t posCaracter;
+
+    for (string::iterator it = valor.begin(); it < valor.end(); it++){
+        caracterLetra = Senha::CaracterLetra(*it);
+        caracterEspecial = count(caracteres.begin(),caracteres.end(),*it);
+        caracterNumero = count(numeros.begin(),numeros.end(),*it);
+
+        if (!(caracterLetra) && !(caracterNumero) && !(caracterEspecial)){
+            throw invalid_argument("Os caracteres devem ser letras, numeros ou os especiais '#', '$', '%' e '&'.");
+        }
+
+        if (caracterLetra){
+            existeLetra = true;
+        }
+
+        if (caracterNumero){
+            existeNumero = true;
+        }
+        
+        posCaracter = valor.find(*it);
+        posCaracter = valor.find(*it, posCaracter+1);
+
+        if (posCaracter != string::npos){
+            throw invalid_argument("Nao deve haver caracteres repetidos na senha.");
+        }
+    }
+
+    if (!(existeLetra && existeNumero)){
+        throw invalid_argument("A senha deve conter pelo menos uma letra e um numero.");
+    }
 }
 
 void Vagas::validar(string valor){
-}
+    const int VAGAS_MIN = 0;
+    const int VAGAS_MAX = 4;
 
+    if (valor.size() != TAMANHO){
+        throw invalid_argument("A vaga deve ser um digito numerico inteiro de 0 a 4.");
+    }
+
+    int vagas = (int)(valor[0] - '0');
+
+    if ((vagas < VAGAS_MIN) || (vagas > VAGAS_MAX)){
+        throw invalid_argument("A vaga deve ser um valor numerico inteiro de 0 a 4.");
+    }
+}

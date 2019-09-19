@@ -117,10 +117,12 @@ class Telefone : public Dominio{
 
 class Senha : public Dominio{
     private:
+        const static int TAMANHO = 5;
         void validar(string);
 };
 
 class Vagas : public Dominio{
     private:
+        const static int TAMANHO = 1;
         void validar(string);
 };
