@@ -100,30 +100,36 @@ void Bagagem::validar(string valor)
 
 void CodigoDeBanco::validar(string valor)
 {
-    int codigoDeBanco = stoi(valor);
-    const int DIA_MES_MIN = 0, LIMITE_SUP = 999;
+    if (valor.size() != TAMANHO)
+    {
+        throw invalid_argument("Tamanho inadequado para Codigo de Banco.");
+    }
 
-    if ((codigoDeBanco < DIA_MES_MIN) || (codigoDeBanco > LIMITE_SUP) || (valor.size() != TAMANHO))
+    if (!(CodigoDeBanco::StringNumerica(valor)))
         throw invalid_argument("Codigo de banco invalido.");
 }
 
 
 void CodigoDeCarona::validar(string valor)
 {
-    int codigoDeCarona = stoi(valor);
-    const int LIMITE_SUP = 9999, DIA_MES_MIN = 0;
+    if (valor.size() != TAMANHO)
+    {
+        throw invalid_argument("Tamanho inadequado para Codigo de Carona.");
+    }
 
-    if ((codigoDeCarona < DIA_MES_MIN) || (codigoDeCarona > LIMITE_SUP) || (valor.size() != TAMANHO))
+    if (!(CodigoDeCarona::StringNumerica(valor)))
         throw invalid_argument("Codigo de carona invalido.");
 }
 
 
 void CodigoDeReserva::validar(string valor)
 {
-    int codigoDeReserva = stoi(valor);
-    const int LIMITE_SUP = 99999, DIA_MES_MIN = 0;
+    if (valor.size() != TAMANHO)
+    {
+        throw invalid_argument("Tamanho inadequado para Codigo de Reserva.");
+    }
 
-    if ((codigoDeReserva < DIA_MES_MIN) || (codigoDeReserva > LIMITE_SUP) || (valor.size() != TAMANHO))
+    if (!(CodigoDeReserva::StringNumerica(valor)))
         throw invalid_argument("Codigo de reserva invalido.");
 
 }
@@ -370,7 +376,7 @@ void Email::validar(string valor)
 
     for(i = 0; i < 2; i++)
     {
-        for(string::iterator it = localEDominio[i].begin(); it <= localEDominio[i].end(); it++)
+        for(string::iterator it = localEDominio[i].begin(); it < localEDominio[i].end(); it++)
         {
             if (!(((*it >= 'a') && (*it <= 'z')) || (*it == ponto)))
                 throw invalid_argument("Caracter invalido. E permitido apenas o ponto final e letras de a-z.");

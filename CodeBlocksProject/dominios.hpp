@@ -1,7 +1,7 @@
 /* Autores: Matheus ..., Ronald Oliveira
- * Matrículas: ..., 180047205
- * Universidade de Brasilia, 2º Semestre de 2019
- * Disciplina: Técnicas de Programação 1
+ * Matrï¿½culas: ..., 180047205
+ * Universidade de Brasilia, 2ï¿½ Semestre de 2019
+ * Disciplina: Tï¿½cnicas de Programaï¿½ï¿½o 1
  * Professor: Fernando Albuquerque
  * Linguagem utilizada: C++
  */
@@ -14,7 +14,7 @@
 
 using namespace std;
 
- // Declaração dos Domínios
+ // Declaraï¿½ï¿½o dos Domï¿½nios
 
 class Dominio
 {
