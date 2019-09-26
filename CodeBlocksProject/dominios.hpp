@@ -21,6 +21,7 @@ class Dominio
     private:
         string valor;
         virtual void validar(string) = 0;
+
     public:
         void setValor(string);
         string getValor()

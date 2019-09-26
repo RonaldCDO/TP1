@@ -4,7 +4,8 @@
 
 using namespace std;
 
-class TUDominio 
+
+class TUDominio
 {
     private:
         virtual void setUp() = 0;
@@ -22,8 +23,10 @@ class TUDominio
         void run();
 };
 
+
+
 class TUAssento : public TUDominio
-{   
+{
     private:
         void setUp();
 
@@ -35,11 +38,13 @@ class TUAssento : public TUDominio
         }
 };
 
+
+
 class TUBagagem : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUBagagem()
         {
@@ -48,11 +53,13 @@ class TUBagagem : public TUDominio
         }
 };
 
+
+
 class TUCodigoDeBanco : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUCodigoDeBanco()
         {
@@ -60,6 +67,8 @@ class TUCodigoDeBanco : public TUDominio
             VALOR_INVALIDO = "8a6";
         }
 };
+
+
 
 class TUCodigoDeCarona : public TUDominio
 {
@@ -74,11 +83,13 @@ class TUCodigoDeCarona : public TUDominio
         }
 };
 
+
+
 class TUCodigoDeReserva : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUCodigoDeReserva()
         {
@@ -87,11 +98,13 @@ class TUCodigoDeReserva : public TUDominio
         }
 };
 
+
+
 class TUCidade : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUCidade()
         {
@@ -100,11 +113,13 @@ class TUCidade : public TUDominio
         }
 };
 
+
+
 class TUCPF : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUCPF()
         {
@@ -113,11 +128,13 @@ class TUCPF : public TUDominio
         }
 };
 
+
+
 class TUData : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUData()
         {
@@ -126,11 +143,13 @@ class TUData : public TUDominio
         }
 };
 
+
+
 class TUDuracao : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUDuracao()
         {
@@ -139,11 +158,13 @@ class TUDuracao : public TUDominio
         }
 };
 
+
+
 class TUEstado : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUEstado()
         {
@@ -152,11 +173,13 @@ class TUEstado : public TUDominio
         }
 };
 
+
+
 class TUEmail : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUEmail()
         {
@@ -165,11 +188,13 @@ class TUEmail : public TUDominio
         }
 };
 
+
+
 class TUNome : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUNome()
         {
@@ -178,11 +203,13 @@ class TUNome : public TUDominio
         }
 };
 
+
+
 class TUNumeroDeAgencia : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUNumeroDeAgencia()
         {
@@ -191,11 +218,13 @@ class TUNumeroDeAgencia : public TUDominio
         }
 };
 
+
+
 class TUNumeroDeConta : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUNumeroDeConta()
         {
@@ -204,11 +233,13 @@ class TUNumeroDeConta : public TUDominio
         }
 };
 
+
+
 class TUPreco : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUPreco()
         {
@@ -217,11 +248,13 @@ class TUPreco : public TUDominio
         }
 };
 
+
+
 class TUTelefone : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUTelefone()
         {
@@ -230,11 +263,13 @@ class TUTelefone : public TUDominio
         }
 };
 
+
+
 class TUSenha : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUSenha()
         {
@@ -243,11 +278,13 @@ class TUSenha : public TUDominio
         }
 };
 
+
+
 class TUVagas : public TUDominio
 {
     private:
         void setUp();
-    
+
     public:
         TUVagas()
         {
@@ -255,6 +292,8 @@ class TUVagas : public TUDominio
             VALOR_INVALIDO = "10";
         }
 };
+
+
 
 class TestesDominios
 {

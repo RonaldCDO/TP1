@@ -3,11 +3,11 @@
 using namespace std;
 
 //  Métodos para a classe base Dominio
-
 void TUDominio::tearDown()
 {
     delete dominio;
 }
+
 
 void TUDominio::testarCenarioSucesso()
 {
@@ -27,6 +27,7 @@ void TUDominio::testarCenarioSucesso()
     }
 }
 
+
 void TUDominio::testarCenarioFalha()
 {
     try
@@ -45,6 +46,7 @@ void TUDominio::testarCenarioFalha()
     }
 }
 
+
 void TUDominio::run()
 {
     setUp();
@@ -54,12 +56,12 @@ void TUDominio::run()
 }
 
 //  Métodos setUp para as classes de Teste de Domínios
-
 void TUAssento::setUp()
 {
     dominio = new Assento();
     tipo = "Assento";
 }
+
 
 void TUBagagem::setUp()
 {
@@ -67,11 +69,13 @@ void TUBagagem::setUp()
     tipo = "Bagagem";
 }
 
+
 void TUCodigoDeBanco::setUp()
 {
     dominio = new CodigoDeBanco();
     tipo = "Codigo de Banco";
 }
+
 
 void TUCodigoDeCarona::setUp()
 {
@@ -79,11 +83,13 @@ void TUCodigoDeCarona::setUp()
     tipo = "Codigo de Carona";
 }
 
+
 void TUCodigoDeReserva::setUp()
 {
     dominio = new CodigoDeReserva();
     tipo = "Codigo de Reserva";
 }
+
 
 void TUCidade::setUp()
 {
@@ -91,11 +97,13 @@ void TUCidade::setUp()
     tipo = "Cidade";
 }
 
+
 void TUCPF::setUp()
 {
     dominio = new CPF();
     tipo = "CPF";
 }
+
 
 void TUData::setUp()
 {
@@ -103,11 +111,13 @@ void TUData::setUp()
     tipo = "Data";
 }
 
+
 void TUDuracao::setUp()
 {
     dominio = new Duracao();
     tipo = "Duracao";
 }
+
 
 void TUEstado::setUp()
 {
@@ -115,11 +125,13 @@ void TUEstado::setUp()
     tipo = "Estado";
 }
 
+
 void TUEmail::setUp()
 {
     dominio = new Email();
     tipo = "E-mail";
 }
+
 
 void TUNome::setUp()
 {
@@ -127,11 +139,13 @@ void TUNome::setUp()
     tipo = "Nome";
 }
 
+
 void TUNumeroDeAgencia::setUp()
 {
     dominio = new NumeroDeAgencia();
     tipo = "Numero de Agencia";
 }
+
 
 void TUNumeroDeConta::setUp()
 {
@@ -139,11 +153,13 @@ void TUNumeroDeConta::setUp()
     tipo = "Numero de Conta";
 }
 
+
 void TUPreco::setUp()
 {
     dominio = new Preco();
     tipo = "Preco";
 }
+
 
 void TUTelefone::setUp()
 {
@@ -151,11 +167,13 @@ void TUTelefone::setUp()
     tipo = "Telefone";
 }
 
+
 void TUSenha::setUp()
 {
     dominio = new Senha();
     tipo = "Senha";
 }
+
 
 void TUVagas::setUp()
 {
@@ -164,7 +182,6 @@ void TUVagas::setUp()
 }
 
 //  Método para executar todos os testes do domínio
-
 void TestesDominios::RunAll()
 {
     bool sucesso = true;
@@ -188,7 +205,7 @@ void TestesDominios::RunAll()
     TUSenha tSenha;
     TUVagas tVagas;
 
-    try 
+    try
     {
         tAssento.run();
     }
@@ -198,7 +215,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tBagagem.run();
     }
@@ -206,9 +223,9 @@ void TestesDominios::RunAll()
     {
         cout << exp.what() << endl;
         sucesso = false;
-    }   
+    }
 
-    try 
+    try
     {
         tCodigoDeBanco.run();
     }
@@ -218,7 +235,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tCodigoDeCarona.run();
     }
@@ -228,7 +245,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tCodigoDeReserva.run();
     }
@@ -238,7 +255,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tCidade.run();
     }
@@ -248,7 +265,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tCPF.run();
     }
@@ -258,7 +275,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tData.run();
     }
@@ -268,7 +285,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tDuracao.run();
     }
@@ -278,7 +295,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tEstado.run();
     }
@@ -288,7 +305,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tEmail.run();
     }
@@ -298,7 +315,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tNome.run();
     }
@@ -308,7 +325,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tNumeroDeAgencia.run();
     }
@@ -318,7 +335,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tNumeroDeConta.run();
     }
@@ -328,7 +345,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tPreco.run();
     }
@@ -338,7 +355,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tTelefone.run();
     }
@@ -348,7 +365,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tSenha.run();
     }
@@ -358,7 +375,7 @@ void TestesDominios::RunAll()
         sucesso = false;
     }
 
-    try 
+    try
     {
         tVagas.run();
     }
