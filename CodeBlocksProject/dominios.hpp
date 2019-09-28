@@ -1,7 +1,7 @@
-/* Autores: Matheus ..., Ronald Oliveira
- * Matr�culas: ..., 180047205
- * Universidade de Brasilia, 2� Semestre de 2019
- * Disciplina: T�cnicas de Programa��o 1
+/* Autores: Matheus Costa de Oliveira, Ronald Cesar Dias de Oliveira
+ * Matriculas: 170019039, 180047205
+ * Universidade de Brasilia, 2o Semestre de 2019
+ * Disciplina: Tecnicas de Programacao 1
  * Professor: Fernando Albuquerque
  * Linguagem utilizada: C++
  */
@@ -14,7 +14,6 @@
 
 using namespace std;
 
- // Declara��o dos Dom�nios
 
 class Dominio
 {
@@ -31,6 +30,10 @@ class Dominio
         static bool CaracterLetra(char);
         static bool StringNumerica(string);
         static bool AlgoritmoDeLuhn(string);
+        virtual ~Dominio()
+        {
+
+        }
 };
 
 

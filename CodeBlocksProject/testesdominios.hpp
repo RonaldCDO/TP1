@@ -1,3 +1,11 @@
+/* Autores: Matheus Costa de Oliveira, Ronald Cesar Dias de Oliveira
+ * Matriculas: 170019039, 180047205
+ * Universidade de Brasilia, 2o Semestre de 2019
+ * Disciplina: Tecnicas de Programacao 1
+ * Professor: Fernando Albuquerque
+ * Linguagem utilizada: C++
+ */
+
 #pragma once
 
 #include "dominios.hpp"
@@ -21,6 +29,11 @@ class TUDominio
         string VALOR_VALIDO;
         string VALOR_INVALIDO;
         void run();
+
+        virtual ~TUDominio()
+        {
+
+        }
 };
 
 
@@ -35,6 +48,10 @@ class TUAssento : public TUDominio
         {
             VALOR_VALIDO = "D";
             VALOR_INVALIDO = "A";
+        }
+        ~TUAssento()
+        {
+
         }
 };
 
@@ -51,6 +68,10 @@ class TUBagagem : public TUDominio
             VALOR_VALIDO = "3";
             VALOR_INVALIDO = "5";
         }
+        ~TUBagagem()
+        {
+
+        }
 };
 
 
@@ -60,11 +81,16 @@ class TUCodigoDeBanco : public TUDominio
     private:
         void setUp();
 
+
     public:
         TUCodigoDeBanco()
         {
             VALOR_VALIDO = "129";
             VALOR_INVALIDO = "8a6";
+        }
+        ~TUCodigoDeBanco()
+        {
+
         }
 };
 
@@ -81,6 +107,10 @@ class TUCodigoDeCarona : public TUDominio
             VALOR_VALIDO = "1586";
             VALOR_INVALIDO = "78";
         }
+        ~TUCodigoDeCarona()
+        {
+
+        }
 };
 
 
@@ -95,6 +125,10 @@ class TUCodigoDeReserva : public TUDominio
         {
             VALOR_VALIDO = "86492";
             VALOR_INVALIDO = "2578#";
+        }
+        ~TUCodigoDeReserva()
+        {
+
         }
 };
 
@@ -111,6 +145,10 @@ class TUCidade : public TUDominio
             VALOR_VALIDO = "Brasilia.";
             VALOR_INVALIDO = "BSB .DF";
         }
+        ~TUCidade()
+        {
+
+        }
 };
 
 
@@ -125,6 +163,10 @@ class TUCPF : public TUDominio
         {
             VALOR_VALIDO = "052.576.591-31";
             VALOR_INVALIDO = "052.576.591-13";
+        }
+        ~TUCPF()
+        {
+
         }
 };
 
@@ -141,6 +183,10 @@ class TUData : public TUDominio
             VALOR_VALIDO = "29/02/2020";
             VALOR_INVALIDO = "29/02/2019";
         }
+        ~TUData()
+        {
+
+        }
 };
 
 
@@ -155,6 +201,10 @@ class TUDuracao : public TUDominio
         {
             VALOR_VALIDO = "20";
             VALOR_INVALIDO = "50";
+        }
+        ~TUDuracao()
+        {
+
         }
 };
 
@@ -171,6 +221,10 @@ class TUEstado : public TUDominio
             VALOR_VALIDO = "DF";
             VALOR_INVALIDO = "AB";
         }
+        ~TUEstado()
+        {
+
+        }
 };
 
 
@@ -185,6 +239,10 @@ class TUEmail : public TUDominio
         {
             VALOR_VALIDO = "matheus@hotmail.com";
             VALOR_INVALIDO = "matheus.@hotmail.com";
+        }
+        ~TUEmail()
+        {
+
         }
 };
 
@@ -201,6 +259,10 @@ class TUNome : public TUDominio
             VALOR_VALIDO = "Matheus Costa.";
             VALOR_INVALIDO = "Matheus  Costa.";
         }
+        ~TUNome()
+        {
+
+        }
 };
 
 
@@ -215,6 +277,10 @@ class TUNumeroDeAgencia : public TUDominio
         {
             VALOR_VALIDO = "1234-4";
             VALOR_INVALIDO = "1234-6";
+        }
+        ~TUNumeroDeAgencia()
+        {
+
         }
 };
 
@@ -231,6 +297,10 @@ class TUNumeroDeConta : public TUDominio
             VALOR_VALIDO = "456789-7";
             VALOR_INVALIDO = "456789-0";
         }
+        ~TUNumeroDeConta()
+        {
+
+        }
 };
 
 
@@ -245,6 +315,10 @@ class TUPreco : public TUDominio
         {
             VALOR_VALIDO = "135";
             VALOR_INVALIDO = "0";
+        }
+        ~TUPreco()
+        {
+
         }
 };
 
@@ -261,6 +335,10 @@ class TUTelefone : public TUDominio
             VALOR_VALIDO = "55-61-999887766";
             VALOR_INVALIDO = "01-00-987654321";
         }
+        ~TUTelefone()
+        {
+
+        }
 };
 
 
@@ -276,8 +354,12 @@ class TUSenha : public TUDominio
             VALOR_VALIDO = "a4Y#%";
             VALOR_INVALIDO = "67#$9";
         }
-};
+        ~TUSenha()
+        {
 
+        }
+};
+void tearDown();
 
 
 class TUVagas : public TUDominio
@@ -290,6 +372,10 @@ class TUVagas : public TUDominio
         {
             VALOR_VALIDO = "0";
             VALOR_INVALIDO = "10";
+        }
+        ~TUVagas()
+        {
+
         }
 };
 

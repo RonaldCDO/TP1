@@ -27,7 +27,7 @@ bool Dominio::CaracterLetra(char ch)
 
 bool Dominio::StringNumerica(string valor)
 {
-    for (int i = 0; i < valor.size(); i++)
+    for (unsigned int i = 0; i < valor.size(); i++)
     {
         if (!((valor[i] >= '0') && (valor[i] <= '9')))
         {
@@ -150,7 +150,7 @@ void Cidade::validar(string valor)
     if (!Cidade::CaracterLetra(valor[0]) && (valor[0] != ' '))
         throw invalid_argument("Nome de cidade invalido.");
 
-    for (int i = 1 ; i < valor.size(); i++)
+    for (unsigned int i = 1 ; i < valor.size(); i++)
     {
         if (valor[i] == '.'){
             if (!Cidade::CaracterLetra(valor[i-1]))

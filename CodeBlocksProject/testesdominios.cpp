@@ -3,11 +3,6 @@
 using namespace std;
 
 //  Métodos para a classe base Dominio
-void TUDominio::tearDown()
-{
-    delete dominio;
-}
-
 
 void TUDominio::testarCenarioSucesso()
 {
@@ -42,8 +37,12 @@ void TUDominio::testarCenarioFalha()
         if (dominio->getValor() == VALOR_INVALIDO)
         {
             throw invalid_argument("Valor invalido '" + VALOR_INVALIDO + "' foi atribuido para a classe " + tipo + ".");
-        };
+        }
     }
+}
+void TUDominio::tearDown(){
+
+    delete dominio;
 }
 
 
