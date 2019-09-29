@@ -89,13 +89,11 @@ class Usuario
 class Reserva
 {
     private:
-
         CodigoDeReserva codigo;
         Assento assento;
         Bagagem bagagem;
 
     public:
-
         void setCodigoDeReserva (const CodigoDeReserva &codigo)
         {
             this->codigo = codigo;
@@ -140,6 +138,13 @@ class Carona
 
         CodigoDeCarona codigo;
         Cidade cidadeDeOrigem;
+        Estado estadoDeOrigem;
+        Cidade cidadeDeDestino;
+        Estado estadoDeDestino;
+        Data data;
+        Duracao duracao;
+        Vagas vagas;
+        Preco preco;
 
     public:
 
@@ -155,6 +160,48 @@ class Carona
         }
 
 
+        void setEstadoDeOrigem (const estadoDeOrigem &estadoDeOrigem)
+        {
+            this->estadoDeOrigem = estadoDeOrigem;
+        }
+
+
+        void setCidadeDeDestino (const cidadeDeDestino &cidadeDeDestino)
+        {
+            this->cidadeDeDestino = cidadeDeDestino;
+        }
+
+
+        void setEstadoDeDestino (const estadoDeDestino &estadoDeDestino)
+        {
+            this->estadoDeDestino = estadoDeDestino;
+        }
+
+
+        void setData (const data &data)
+        {
+            this->data = data;
+        }
+
+
+        void setDuracao (const duracao &duracao)
+        {
+            this->duracao = duracao;
+        }
+
+
+        void setVagas (const vagas &vagas)
+        {
+            this->vagas = vagas;
+        }
+
+
+        void setPreco (const preco &preco)
+        {
+            this->preco = preco;
+        }
+
+
         CodigoDeCarona getCodigoDeCarona()
         {
             return codigo;
@@ -164,5 +211,94 @@ class Carona
         Cidade getCidade ()
         {
             return cidadeDeOrigem;
+        }
+
+
+        Estado getEstadoDeOrigem()
+        {
+            return estadoDeOrigem;
+        }
+
+
+        Cidade getCidadeDeDestino ()
+        {
+            return cidadeDeDestino;
+        }
+
+
+        Estado getEstadoDeDestino()
+        {
+            return estadoDeDestino;
+        }
+
+
+        Data getData ()
+        {
+            return data;
+        }
+
+
+        Duracao getDuracao()
+        {
+            return duracao;
+        }
+
+
+        Vagas getVagas ()
+        {
+            return vagas;
+        }
+
+
+        Preco getPreco()
+        {
+            return preco;
+        }
+};
+
+
+
+
+class Conta
+{
+    private:
+        CodigoDeBanco banco;
+        NumeroDeAgencia agencia;
+        NumeroDeConta conta;
+
+    public:
+        void setCodigoDeBanco (const banco &banco)
+        {
+            this->banco = banco;
+        }
+
+
+        void setNumeroDeAgencia (const agencia &agencia)
+        {
+            this->agencia = agencia;
+        }
+
+
+         void setNumeroDeConta (const conta &conta)
+        {
+            this->conta = conta;
+        }
+
+
+        CodigoDeBanco getCodigoDeBanco ()
+        {
+            return banco;
+        }
+
+
+        NumeroDeAgencia getNumeroDeAgencia()
+        {
+            return agencia;
+        }
+
+
+        NumeroDeConta getNumeroDeConta()
+        {
+            return conta;
         }
 };
