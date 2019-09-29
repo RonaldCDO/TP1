@@ -15,10 +15,6 @@
 
 class Usuario
 {
-    private:
-
-
-
     public:
 
         Nome nome;
@@ -90,12 +86,12 @@ class Usuario
 
 class Reserva
 {
-    private:
+    public:
+
         CodigoDeReserva codigo;
         Assento assento;
         Bagagem bagagem;
 
-    public:
         void setCodigoDeReserva (const CodigoDeReserva &codigo)
         {
             this->codigo = codigo;
@@ -136,7 +132,7 @@ class Reserva
 
 class Carona
 {
-    private:
+    public:
 
         CodigoDeCarona codigo;
         Cidade cidadeDeOrigem;
@@ -148,15 +144,13 @@ class Carona
         Vagas vagas;
         Preco preco;
 
-    public:
-
         void setCodigoDeCarona (const CodigoDeCarona &codigo)
         {
             this->codigo = codigo;
         }
 
 
-        void setCidade (const Cidade &cidadeDeOrigem)
+        void setCidadeDeOrigem (const Cidade &cidadeDeOrigem)
         {
             this->cidadeDeOrigem = cidadeDeOrigem;
         }
@@ -210,7 +204,7 @@ class Carona
         }
 
 
-        Cidade getCidade ()
+        Cidade getCidadeDeOrigem ()
         {
             return cidadeDeOrigem;
         }
@@ -263,44 +257,43 @@ class Carona
 
 class Conta
 {
-    private:
-        CodigoDeBanco banco;
-        NumeroDeAgencia agencia;
-        NumeroDeConta conta;
-
     public:
-        void setCodigoDeBanco (const CodigoDeBanco &banco)
+        CodigoDeBanco codigoDeBanco;
+        NumeroDeAgencia numeroDeAgencia;
+        NumeroDeConta numeroDeConta;
+
+        void setCodigoDeBanco (const CodigoDeBanco &codigoDeBanco)
         {
-            this->banco = banco;
+            this->codigoDeBanco = codigoDeBanco;
         }
 
 
-        void setNumeroDeAgencia (const NumeroDeAgencia &agencia)
+        void setNumeroDeAgencia (const NumeroDeAgencia &numeroDeAgencia)
         {
-            this->agencia = agencia;
+            this->numeroDeAgencia = numeroDeAgencia;
         }
 
 
-         void setNumeroDeConta (const NumeroDeConta &conta)
+         void setNumeroDeConta (const NumeroDeConta &numeroDeConta)
         {
-            this->conta = conta;
+            this->numeroDeConta = numeroDeConta;
         }
 
 
-        CodigoDeBanco getCodigoDeBanco ()
+        CodigoDeBanco getCodigoDeBanco()
         {
-            return banco;
+            return codigoDeBanco;
         }
 
 
         NumeroDeAgencia getNumeroDeAgencia()
         {
-            return agencia;
+            return numeroDeAgencia;
         }
 
 
         NumeroDeConta getNumeroDeConta()
         {
-            return conta;
+            return numeroDeConta;
         }
 };

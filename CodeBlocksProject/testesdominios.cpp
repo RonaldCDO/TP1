@@ -40,8 +40,9 @@ void TUDominio::testarCenarioFalha()
         }
     }
 }
-void TUDominio::tearDown(){
 
+void TUDominio::tearDown()
+{
     delete dominio;
 }
 
@@ -385,5 +386,5 @@ void TestesDominios::RunAll()
     }
 
     if (sucesso)
-        cout << "Sucesso nos testes!" << endl;
+        cout << "Sucesso nos testes de domínios." << endl;
 }

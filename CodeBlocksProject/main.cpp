@@ -3,11 +3,14 @@
 #include "dominios.hpp"
 #include "testesdominios.hpp"
 #include "entidades.hpp"
+#include "testesentidades.hpp"
 
 using namespace std;
 
-int main(){
-
+int main()
+{
     TestesDominios::RunAll();
+    cout << endl;
+    TestesEntidades::RunAll();
     return 0;
 }
