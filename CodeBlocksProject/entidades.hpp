@@ -17,13 +17,15 @@ class Usuario
 {
     private:
 
+
+
+    public:
+
         Nome nome;
         Telefone telefone;
         Email email;
         Senha senha;
         CPF cpf;
-
-    public:
 
         void setNome(const Nome &nome)
         {
@@ -160,43 +162,43 @@ class Carona
         }
 
 
-        void setEstadoDeOrigem (const estadoDeOrigem &estadoDeOrigem)
+        void setEstadoDeOrigem (const Estado &estadoDeOrigem)
         {
             this->estadoDeOrigem = estadoDeOrigem;
         }
 
 
-        void setCidadeDeDestino (const cidadeDeDestino &cidadeDeDestino)
+        void setCidadeDeDestino (const Cidade &cidadeDeDestino)
         {
             this->cidadeDeDestino = cidadeDeDestino;
         }
 
 
-        void setEstadoDeDestino (const estadoDeDestino &estadoDeDestino)
+        void setEstadoDeDestino (const Estado &estadoDeDestino)
         {
             this->estadoDeDestino = estadoDeDestino;
         }
 
 
-        void setData (const data &data)
+        void setData (const Data &data)
         {
             this->data = data;
         }
 
 
-        void setDuracao (const duracao &duracao)
+        void setDuracao (const Duracao &duracao)
         {
             this->duracao = duracao;
         }
 
 
-        void setVagas (const vagas &vagas)
+        void setVagas (const Vagas &vagas)
         {
             this->vagas = vagas;
         }
 
 
-        void setPreco (const preco &preco)
+        void setPreco (const Preco &preco)
         {
             this->preco = preco;
         }
@@ -267,19 +269,19 @@ class Conta
         NumeroDeConta conta;
 
     public:
-        void setCodigoDeBanco (const banco &banco)
+        void setCodigoDeBanco (const CodigoDeBanco &banco)
         {
             this->banco = banco;
         }
 
 
-        void setNumeroDeAgencia (const agencia &agencia)
+        void setNumeroDeAgencia (const NumeroDeAgencia &agencia)
         {
             this->agencia = agencia;
         }
 
 
-         void setNumeroDeConta (const conta &conta)
+         void setNumeroDeConta (const NumeroDeConta &conta)
         {
             this->conta = conta;
         }
