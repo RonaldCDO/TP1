@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1569506602 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.cpp
+	"dominios.hpp"
+	<vector>
+	<algorithm>
+	<sstream>
+
+1569599077 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\dominios.hpp
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569679779 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\entidades.cpp
+	"entidades.hpp"
+
+1569867094 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\entidades.hpp
+	"dominios.hpp"
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569867094 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\main.cpp
+	<iostream>
+	<string>
+	"dominios.hpp"
+	"testesdominios.hpp"
+	"entidades.hpp"
+	"testesentidades.hpp"
+
+1569867854 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testesdominios.hpp
+	"dominios.hpp"
+
+1569867703 c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testesentidades.hpp
+	"entidades.hpp"
+
+1569867776 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testesentidades.cpp
+	"testesentidades.hpp"
+
+1569867886 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testesdominios.cpp
+	"testesdominios.hpp"
+
