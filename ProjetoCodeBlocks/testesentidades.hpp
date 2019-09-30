@@ -1,3 +1,11 @@
+/* Autores: Matheus Costa de Oliveira, Ronald Cesar Dias de Oliveira
+ * Matriculas: 170019039, 180047205
+ * Universidade de Brasilia, 2o Semestre de 2019
+ * Disciplina: Tecnicas de Programacao 1
+ * Professor: Fernando Albuquerque
+ * Linguagem utilizada: C++
+ */
+
 #pragma once
 
 #include "entidades.hpp"

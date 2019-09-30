@@ -1,11 +1,4 @@
-    /* Autores: Matheus Costa de Oliveira, Ronald Cesar Dias de Oliveira
- * Matriculas: 170019039, 180047205
- * Universidade de Brasilia, 2o Semestre de 2019
- * Disciplina: Tecnicas de Programacao 1
- * Professor: Fernando Albuquerque
- * Linguagem utilizada: C++
- */
-
+///@author <Matheus Costa Oliveira e Ronald Cesar Oliveira>
 #pragma once
 
 #include <iostream>
@@ -14,7 +7,9 @@
 
 using namespace std;
 
-
+///Classe Dominio
+///
+///Trata-se de uma abstracao de Heranca dos atributos e metodos comuns das classes tipo Dominio.
 class Dominio
 {
     private:
@@ -22,7 +17,14 @@ class Dominio
         virtual void validar(string) = 0;
 
     public:
+        ///Metodo setValor(string);
+        ///
+        /// O metodo serve para atribuir valores para as os objetos das classes dominio.
+
         void setValor(string);
+        ///Metodo getValor();
+        ///
+        ///O metodo get serve para buscar o valor existente da variavel string de cada classe dominio.
         string getValor()
         {
             return valor;
