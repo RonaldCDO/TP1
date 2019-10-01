@@ -32,6 +32,7 @@ class Dominio
         static bool CaracterLetra(char);
         static bool StringNumerica(string);
         static bool AlgoritmoDeLuhn(string);
+
         virtual ~Dominio()
         {
 

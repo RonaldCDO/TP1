@@ -3,7 +3,6 @@
 using namespace std;
 
 //  Métodos para a classe base Dominio
-
 void TUDominio::testarCenarioSucesso()
 {
     try

@@ -79,3 +79,43 @@
 1569892877 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\testesentidades.cpp
 	"testesentidades.hpp"
 
+1569506602 source:c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\dominios.cpp
+	"dominios.hpp"
+	<vector>
+	<algorithm>
+	<sstream>
+
+1569888663 c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\dominios.hpp
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569679779 source:c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\entidades.cpp
+	"entidades.hpp"
+
+1569894274 c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\entidades.hpp
+	"dominios.hpp"
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569867094 source:c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\main.cpp
+	<iostream>
+	<string>
+	"dominios.hpp"
+	"testesdominios.hpp"
+	"entidades.hpp"
+	"testesentidades.hpp"
+
+1569867854 c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\testesdominios.hpp
+	"dominios.hpp"
+
+1569871826 c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\testesentidades.hpp
+	"entidades.hpp"
+
+1569867886 source:c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\testesdominios.cpp
+	"testesdominios.hpp"
+
+1569894337 source:c:\users\dell\documents\repositório - tp1\tp1\projetocodeblocks\testesentidades.cpp
+	"testesentidades.hpp"
+
