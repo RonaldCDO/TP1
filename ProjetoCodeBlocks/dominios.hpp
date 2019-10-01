@@ -98,7 +98,7 @@ class CodigoDeBanco : public Dominio
 ///
 ///O formato é do tipo 'XXXX', nos quais todos os dígitos são puramente numéricos (0-9).
 ///A título de exemplo, a string '0000' configura um *valor* válido.
-class CodigoDeCarona : public Dominio.
+class CodigoDeCarona : public Dominio
 {
     private:
         const static int TAMANHO = 4;

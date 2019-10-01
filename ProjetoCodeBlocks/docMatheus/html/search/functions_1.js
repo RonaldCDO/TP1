@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setvalor_101',['setValor',['../class_dominio.html#ad6cdf0af925aca18d7b0ec660922567b',1,'Dominio']]]
+  ['caracterletra_144',['CaracterLetra',['../class_dominio.html#aa25349ec10166134847e8401cd17cd48',1,'Dominio']]]
 ];

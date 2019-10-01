@@ -5,8 +5,7 @@
 #include <string>
 #include <stdexcept>
 
-///Usuario
-///
+
 ///A Entidade **Usuario** é uma abstração para o usuário do sistema de carona que é indentificada pelos objetos nome, telefone, email, senha e cpf.
 class Usuario
 {
@@ -83,8 +82,7 @@ class Usuario
 };
 
 
-///Reserva
-///
+
 ///A Entidade **Reserva** é uma abstração para o registro de um usuário em uma carona do sistema que é indentificada pelos objetos codigo, assento e bagagem.
 class Reserva
 {
@@ -135,8 +133,7 @@ class Reserva
 };
 
 
-///Carona
-///
+
 ///A Entidade **Carona** é uma abstração para o evento principal do sistema de carona que é indentificada pelos objetos codigo, cidadeDeOrigem, estadoDeOrigem,
 ///cidadeDeDestino, estadoDeDestino, data, duracao, vagas, preco.
 class Carona
@@ -273,8 +270,7 @@ class Carona
 
 
 
-///Conta
-///
+
 ///A Entidade **Conta** é uma abstração para a escrituração de registro individual do usuário  do sistema de carona que é indentificada pelos objetos codigoDeBanco, numeroDeAgencia e numeroDeConta.
 class Conta
 {

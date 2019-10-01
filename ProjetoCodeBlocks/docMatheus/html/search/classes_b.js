@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vagas_99',['Vagas',['../class_vagas.html',1,'']]]
+  ['vagas_142',['Vagas',['../class_vagas.html',1,'']]]
 ];
