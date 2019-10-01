@@ -19,6 +19,7 @@ void TUEntidade::run()
     }
 }
 
+
 TUUsuario::TUUsuario()
 {
     try
@@ -35,6 +36,7 @@ TUUsuario::TUUsuario()
         entradaValida = false;
     }
 }
+
 
 void TUUsuario::setValores()
 {
@@ -73,7 +75,6 @@ void TUUsuario::comparaValores()
         throw invalid_argument("Classe Usuario nao armazenou um cpf valido");
     }
 }
-
 
 
 TUReserva::TUReserva()
@@ -139,6 +140,7 @@ TUCarona::TUCarona()
         entradaValida = false;
     }
 }
+
 
 void TUCarona::setValores()
 {

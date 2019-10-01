@@ -6,7 +6,6 @@
 using namespace std;
 
 //Definicao dos metodos da Classe Abstrata utilizada na Heranca.
-
 void Dominio::setValor(string valor)
 {
     validar(valor);
@@ -40,8 +39,8 @@ bool Dominio::StringNumerica(string valor)
 
 bool Dominio::AlgoritmoDeLuhn(string valor)
 {
-    const int ultimaPos = valor.size() - 2;             //O ultimo digito a ser verificado e o penultimo da string
-    const int teto = 10;                                //Nao podem conter 2 algarismos
+    const int ultimaPos = valor.size() - 2;  //O ultimo digito a ser verificado e o penultimo da string
+    const int teto = 10;                     //Nao podem conter 2 algarismos
     int numero, numeroDobrado;
     int soma = 0;
 
@@ -78,9 +77,7 @@ bool Dominio::AlgoritmoDeLuhn(string valor)
     }
 }
 
-
 //Definicao dos metodos validar especificos de cada Classe
-
 void Assento::validar(string valor)
 {
     if((valor != "D") && (valor != "T"))
@@ -141,7 +138,6 @@ void CodigoDeReserva::validar(string valor)
     {
         throw invalid_argument("Codigo de reserva invalido.");
     }
-
 }
 
 
@@ -177,7 +173,7 @@ void CPF::validar(string valor)
     int POS_HIFEN;
     int POS_PONTO[2];
 
-    POS_PONTO[0] = 3;           //Posicionamento dos pontos e dos hífens para um CPF correto.
+    POS_PONTO[0] = 3; //Posicionamento dos pontos e dos hífens para um CPF correto.
     POS_PONTO[1] = 7;
     POS_HIFEN = 11;
 
@@ -193,10 +189,10 @@ void CPF::validar(string valor)
 
     for (int i = 3; i > 0; i--)
     {
-        valor.erase(valor.begin() + ((4*i) - 1));             //Remove os '.' e '-' da string;
+        valor.erase(valor.begin() + ((4*i) - 1)); //Remove os '.' e '-' da string;
     }
 
-    int TamanhoVetorDig = valor.size();                       //Agora o tamanho do CPF é 11;
+    int TamanhoVetorDig = valor.size(); //Agora o tamanho do CPF é 11;
     int DigitosVerificadores[TamanhoVetorDig], Verificador[2];
     int DigitoInt;
     int Soma = 0;
@@ -207,8 +203,8 @@ void CPF::validar(string valor)
         throw invalid_argument("Numero de CPF invalido.");
     }
 
-    for (int i = 0; i < (TamanhoVetorDig - 2); i++)
-    {                        //Executa o algoritmo de vericação para o primeiro dígito.
+    for (int i = 0; i < (TamanhoVetorDig - 2); i++) //Executa o algoritmo de vericação para o primeiro dígito.
+    {
         DigitoInt = (int)(valor[i] - '0');
         DigitosVerificadores[i] = DigitoInt * (10 - i);
         Soma += DigitosVerificadores[i];
@@ -226,8 +222,8 @@ void CPF::validar(string valor)
 
     Soma = 0;
 
-    for (int i = 0; i < (TamanhoVetorDig - 1); i++)
-    {                        //Executa a verificação para o segundo dígito
+    for (int i = 0; i < (TamanhoVetorDig - 1); i++) //Executa a verificação para o segundo dígito
+    {
         DigitoInt = (int)(valor[i] - '0');
         DigitosVerificadores[i] = DigitoInt * (11 - i);
         Soma += DigitosVerificadores[i];
@@ -239,8 +235,8 @@ void CPF::validar(string valor)
     }
     else Verificador[1] = 11 - (Soma % 11);
 
-    TesteDigitos[0] = ((int)(valor[valor.size()-2] - '0') != Verificador[0]);       //Compara os digitos verificadores digitados pelo usuário
-    TesteDigitos[1] = ((int)(valor[valor.size()-1] - '0') != Verificador[1]);       // com os obtidos pelo algoritmo.
+    TesteDigitos[0] = ((int)(valor[valor.size()-2] - '0') != Verificador[0]); //Compara os digitos verificadores digitados pelo usuário
+    TesteDigitos[1] = ((int)(valor[valor.size()-1] - '0') != Verificador[1]); // com os obtidos pelo algoritmo.
 
     if (TesteDigitos[0] || TesteDigitos[1])
     {
@@ -265,7 +261,7 @@ void Data::validar(string valor)
         throw invalid_argument("Formato de data inadequado.");
     }
 
-    valor.erase(valor.begin() + POS_BARRA[1]);          //Remove as barras da string data
+    valor.erase(valor.begin() + POS_BARRA[1]); //Remove as barras da string data
     valor.erase(valor.begin() + POS_BARRA[0]);
 
     if (!(Data::StringNumerica(valor))) //Verifica se os caracteres restantes são numeros
@@ -280,7 +276,7 @@ void Data::validar(string valor)
     const int DIA_MES_MIN = 1;
     const int MES_MAX = 12;
     const int FEVEREIRO = 2;
-    int dia = stoi(valor.substr(POS_DIA,TAMANHO_DIA));  //Obtencao dos valores para dia, mes e ano
+    int dia = stoi(valor.substr(POS_DIA,TAMANHO_DIA)); //Obtencao dos valores para dia, mes e ano
     int mes = stoi(valor.substr(POS_MES,TAMANHO_MES));
     int ano = stoi(valor.substr(POS_ANO,TAMANHO_ANO));
     bool bissexto = (ano % 4 == 0);
@@ -577,7 +573,7 @@ void Telefone::validar(string valor){
         throw invalid_argument("Codigo de pais, DDD e telefone combinam 13 digitos e devem estar separados por hifen.");
     }
 
-    for (int i = (posHifen.size() - 1); i >= 0; i--)            //Apagar os hífens da string
+    for (int i = (posHifen.size() - 1); i >= 0; i--) //Apagar os hífens da string
         valor.erase(valor.begin() + posHifen[i]);
 
     if (!(Telefone::StringNumerica(valor)))
