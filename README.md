@@ -8,7 +8,7 @@ O arquivo *Enunciado do Trabalho* contém as instruções do docente da discipli
 
 O estilo de codificação adotado no código foi baseado nos exemplos fornecidos em sala de aula e nas regras expostas no documento *Refrência de Codificação*.
 
-### DOxyfile
+### Doxyfile
 
 Esse arquivo pode ser aberto na plataforma *Doxygen GUI*. Contém as configurações adotadas para geração das páginas HTML.
 
