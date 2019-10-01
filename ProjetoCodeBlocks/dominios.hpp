@@ -7,9 +7,10 @@
 
 using namespace std;
 
-///Classe Dominio
+///A Classe **Dominio** é uma classe base para os domínios, que são elementos básicos para um sistema de caronas.
 ///
-///Trata-se de uma abstracao de Heranca dos atributos e metodos comuns das classes tipo Dominio.
+///Os domínios solicitados herdam a classe base de maneira pública. Portanto os métodos públicos, protegidos e privados serão herdados nas mesmas características.
+///@attention Todas as demais classes do arquivo *dominios* herdam da classe Dominio.
 class Dominio
 {
     private:
@@ -17,14 +18,13 @@ class Dominio
         virtual void validar(string) = 0;
 
     public:
-        ///Metodo setValor(string);
-        ///
-        /// O metodo serve para atribuir valores para as os objetos das classes dominio.
-
+        ///O método setValor tem a função de atribuir um valor para o atributo do tipo string, denotado de maneira privada como *valor*.
+        ///Para cada domínio herdeiro, um método *validar* é invocado para que se verifique se o parâmetro passado segue o formato especificado para cada Classe herdeira.
+        ///Se a string se adequar às exigências da classe, este valor é salvo como atributo da classe.
         void setValor(string);
-        ///Metodo getValor();
-        ///
-        ///O metodo get serve para buscar o valor existente da variavel string de cada classe dominio.
+
+        ///O método serve para buscar o valor salvo do atributo string de cada classe em questão.
+        ///Retorna o *valor* para o usuário da classe que a invocou.
         string getValor()
         {
             return valor;
@@ -39,7 +39,10 @@ class Dominio
 };
 
 
-
+///É a posição do banco utilizado pelo passageiro no veículo utilizado para execução da carona.
+///
+///A posição do assento pode ser *dianteira* ou *traseira*.
+///Desse modo, o *valor* passado para o domínio pela função @see setValor() tem de ser do formato "D" ou "T".
 class Assento : public Dominio
 {
     private:

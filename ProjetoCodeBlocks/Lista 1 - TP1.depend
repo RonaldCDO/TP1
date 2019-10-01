@@ -39,3 +39,43 @@
 1569867886 source:c:\users\dell\documents\repositório - tp1\tp1\codeblocksproject\testesdominios.cpp
 	"testesdominios.hpp"
 
+1569892877 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\dominios.cpp
+	"dominios.hpp"
+	<vector>
+	<algorithm>
+	<sstream>
+
+1569893313 c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\dominios.hpp
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569892877 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\entidades.cpp
+	"entidades.hpp"
+
+1569892877 c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\entidades.hpp
+	"dominios.hpp"
+	<iostream>
+	<string>
+	<stdexcept>
+
+1569893189 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\main.cpp
+	<iostream>
+	<string>
+	"dominios.hpp"
+	"testesdominios.hpp"
+	"entidades.hpp"
+	"testesentidades.hpp"
+
+1569892877 c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\testesdominios.hpp
+	"dominios.hpp"
+
+1569892877 c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\testesentidades.hpp
+	"entidades.hpp"
+
+1569892877 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\testesdominios.cpp
+	"testesdominios.hpp"
+
+1569892877 source:c:\users\matheus costa\documents\ene\6º semestre\tp1\tp1\projetocodeblocks\testesentidades.cpp
+	"testesentidades.hpp"
+
