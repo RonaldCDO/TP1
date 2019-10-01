@@ -294,6 +294,6 @@ void TestesEntidades::RunAll()
         tCarona.run();
         tConta.run();
 
-        cout << "Sucesso nos testes de Entidades." << endl;
+        cout << "Conclusão dos testes de Entidades." << endl;
     }
 }

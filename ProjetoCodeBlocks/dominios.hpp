@@ -25,10 +25,13 @@ class Dominio
         ///
         ///Para cada domínio herdeiro, um método *validar* é invocado para que se verifique se o parâmetro passado segue o formato especificado para cada Classe herdeira.
         ///
-        ///Se a string se adequar às exigências da classe, este valor é salvo como atributo da classe.
+        ///No caso do *valor* não ser válido, o método setValor(string) lança uma exceção do tipo 'invalid_argument' com a descrição adequada.
+        ///
+        ///Se o parâmetro do tipo string se adequar às exigências da classe, este *valor* é salvo como atributo da classe.
         void setValor(string);
 
-        ///O método serve para buscar o valor salvo do atributo string de cada classe em questão.
+        ///O método serve para buscar o atributo privado *valor* do tipo string da cada classe em questão.
+        ///
         ///Retorna o *valor* para o usuário da classe que a invocou.
         string getValor()
         {
@@ -45,13 +48,18 @@ class Dominio
         ///Caso positivo, o método retorna um boleano *True*. Caso contrário, retorna *False*.
         static bool StringNumerica(string);
 
-        ///O algoritmo de Luhn é utilizado para verificar a validez de uma combinação numérica, cujos dois últimos algarismos devem respeitar os critários estabelecidos.
+        ///O algoritmo de Luhn é utilizado para verificar a validez de uma combinação numérica, cujos dois últimos algarismos devem respeitar os critérios estabelecidos.
         ///
         ///Uma descrição detalhada do funcionamento do algoritmo por ser obtida em \link https://en.wikipedia.org/wiki/Luhn_algorithm \endlink .
         ///
-        ///O método recebe uma string puramente numérica e retorna *True* se os dígitos verificadores respeitam a lógica do algoritmo. Caso contrário, retorna *False*.
+        ///@attention O método deve receber uma string puramente numérica.
+        ///
+        ///O método retorna *True* se os dígitos verificadores respeitarem a lógica do algoritmo. Caso contrário, retorna *False*.
         static bool AlgoritmoDeLuhn(string);
 
+        ///Destrutor virtual.
+        ///
+        ///Utilizado para deletar um objeto de qualquer uma das classes herdeiras.
         virtual ~Dominio()
         {
 
@@ -84,8 +92,8 @@ class Bagagem : public Dominio
 
 ///Domínio que identifica a entidade bancária cujo o usuário do sistema é cliente.
 ///
-///O formato do valor esperado é 'XXX', nos quais todos os dígitos são puramente numéricos (0-9).
-///A título de exemplo, a string '000' configura um *valor* válido.
+///O formato do valor esperado é "XXX", nos quais todos os dígitos são puramente numéricos (0-9).
+///A título de exemplo, a string "000" configura um *valor* válido.
 class CodigoDeBanco : public Dominio
 {
     private:
@@ -96,8 +104,8 @@ class CodigoDeBanco : public Dominio
 
 ///Número utilizado para identificar uma carona composta por diferentes usuários do sistema.
 ///
-///O formato é do tipo 'XXXX', nos quais todos os dígitos são puramente numéricos (0-9).
-///A título de exemplo, a string '0000' configura um *valor* válido.
+///O formato é do tipo "XXXX", nos quais todos os dígitos são puramente numéricos (0-9).
+///A título de exemplo, a string "0000" configura um *valor* válido.
 class CodigoDeCarona : public Dominio
 {
     private:
@@ -105,10 +113,10 @@ class CodigoDeCarona : public Dominio
         void validar(string);
 };
 
-///Número utilizado por um usuário para garantir a reserva realizada no domínio de aplicação.
+///Número utilizado pelo sistema e pelos para identificar o planejamento e previsão do evento no domínio de aplicação.
 ///
-///O formato é do tipo 'XXXXX', nos quais todos os dígitos são puramente numéricos (0-9).
-///A título de exemplo, a string '00000' configura um *valor* válido.
+///O formato é do tipo "XXXXX", nos quais todos os dígitos são puramente numéricos (0-9).
+///A título de exemplo, a string "00000" configura um *valor* válido.
 class CodigoDeReserva : public Dominio
 {
     private:
@@ -117,7 +125,7 @@ class CodigoDeReserva : public Dominio
 };
 
 
-///É um aglomerado geográfico de pessoas que desempenha funões socioeconômicas.
+///É um aglomerado geográfico de pessoas que desempenha funções socioeconômicas.
 ///
 ///No contexto de um sistema de caronas, é utilizada para identificar a região de início e fim do trajeto.
 ///
@@ -139,7 +147,7 @@ class Cidade : public Dominio
 ///O formato para o *valor* é "XXX.XXX.XXX-YY".
 ///Na string, X são dígitos numéricos (0-9) e Y são dígitos verificadores para os 9 primeiros algarismos de acordo com um algoritmo verificador de CPF.
 ///
-///O algoritmo verificador pode ser consultado em \link geradorcpf.com/algoritmo_do_cpf.htm \endlink .
+///A lógica do algoritmo verificador pode ser consultada em \link geradorcpf.com/algoritmo_do_cpf.htm \endlink .
 class CPF : public Dominio
 {
     private:
@@ -154,7 +162,7 @@ class CPF : public Dominio
 ///
 ///O formato para *valor* é "DD/MM/AAAA", na qual 'DD' representa o dia e vai de 1 a 31, a depender do mês.
 ///'MM' representa o mês e vai de 1 a 12.
-///E 'AAAA' representa o ano.
+///'AAAA' representa o ano.
 ///
 ///Vale observar que a verificação da data aborda a ocorrência de anos bissextos.
 class Data : public Dominio
@@ -192,7 +200,7 @@ class Estado : public Dominio
 ///
 ///O formato deve ser "local@dominio", no qual as partes 'local' e 'dominio' podem conter no máximo 20 caracteres cada.
 ///
-///Os caracteres permitidos são letras de 'a' até 'z' ou ponto final. Não podem haver dois pontos em sequência.
+///Os caracteres permitidos são letras minúsculas ou ponto final. Não podem haver dois pontos em sequência.
 ///
 ///O 'local' não pode iniciar e nem terminar com ponto. O 'dominio' não pode começar com ponto.
 class Email : public Dominio
@@ -202,7 +210,7 @@ class Email : public Dominio
 };
 
 
-///Palavra dada ao usuário que compõe um dos elementos básicos da sua individualização e compõe um dos identificadores no sistema.
+///Palavra dada ao usuário que compõe um dos elementos básicos da sua individualização, além de ser um dos identificadores no sistema.
 ///
 ///O formato deve ser uma string de 1 a 20 caracteres composta por letras, pontos ou espaços.
 ///
@@ -216,7 +224,7 @@ class Nome : public Dominio
 
 ///Dado o código de banco que identifica a entidade bancária do usuário, o número de agência identifica o local onde tal agente se estabelece e o usuário possui seu cadastro.
 ///
-///O formato do *valor* deve ser "XXXX-Y", nos quais os X são algarismos (0-9) e Y é um dígito verificador obtdo pelo Algoritmo de Luhn.
+///O formato do *valor* deve ser "XXXX-Y", nos quais os X são algarismos (0-9) e Y é um dígito verificador obtdo pelo AlgoritmoDeLuhn(string) .
 class NumeroDeAgencia: public Dominio
 {
     private:
@@ -227,7 +235,7 @@ class NumeroDeAgencia: public Dominio
 
 ///É um número que identifica a escrituração de registro individual do usuário do sistema em sua instituição financeira.
 ///
-///O formato do *valor* deve ser "XXXXXX-Y", nos quais os X são algarismos (0-9) e Y é um dígito verificador obtdo pelo Algoritmo de Luhn.
+///O formato do *valor* deve ser "XXXXXX-Y", nos quais os X são algarismos (0-9) e Y é um dígito verificador obtdo pelo AlgoritmoDeLuhn(string) .
 class NumeroDeConta : public Dominio
 {
     private:
@@ -238,7 +246,7 @@ class NumeroDeConta : public Dominio
 
 ///Valor econômico de um serviço ou mercadoria.
 ///
-///O formato do *valor* deve ser uma string numérica de '1' a '5000'. O valor representa um valor monetário em reais.
+///O formato do *valor* deve ser uma string numérica de '1' a '5000'. O *valor* representa uma grandeza monetária em reais.
 class Preco : public Dominio
 {
     private:
@@ -248,9 +256,9 @@ class Preco : public Dominio
 
 ///Números por meio dos quais se estabelece uma conexão telefônica, que são utilizados para contactar o usuário.
 ///
-///O formato do *valor* deve ser uma string puramente numérica "XX-YY-ZZZZZZZZZ".
+///O formato do *valor* deve ser uma string numérica no formato "XX-YY-ZZZZZZZZZ".
 ///
-///'XX', 'YY' e 'ZZZZZZZZZ' não podem ser compostos puramente por zeros.
+///As substrings 'XX', 'YY' e 'ZZZZZZZZZ' não podem ser individualmente compostas puramente por zeros.
 class Telefone : public Dominio
 {
     private:
@@ -259,9 +267,9 @@ class Telefone : public Dominio
 };
 
 
-///Combinação de caracteres responsável segurança da conta e identificação do usuário.
+///Combinação de caracteres responsável pela segurança da conta e pela identificação do usuário.
 ///
-///O formato do *valor* deve ser uma string de 5 caracteres distintos.
+///O formato do *valor* deve ser uma string de 5 caracteres **distintos**.
 ///
 ///Os caracteres podem ser letras maiúsculas ou minúsculas, algarismos ou os símbolos '#', '$', '%' e '&'.
 class Senha : public Dominio

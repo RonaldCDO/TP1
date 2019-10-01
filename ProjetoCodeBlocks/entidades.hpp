@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 
-///A Entidade **Usuario** é uma abstração para o usuário do sistema de carona que é indentificada pelos objetos nome, telefone, email, senha e cpf.
+///A Entidade **Usuario** é uma abstração para o usuário do sistema de carona, o qual é indentificado pelos objetos das classes Nome, Telefone, Email, Senha e CPF.
 class Usuario
 {
     public:
@@ -16,30 +16,30 @@ class Usuario
         Senha senha;
         CPF cpf;
 
-        ///O Método  tem a função de atribuir um objeto da classe Nome ao atributo **nome** da classe Usuario.
+        ///O Método tem a função de atribuir um objeto da classe Nome ao atributo **nome** da classe Usuario.
         void setNome(const Nome &nome)
         {
             this->nome = nome;
         }
-        ///O Método  tem a função de atribuir um objeto da classe Telefone ao atributo *telefone* da classe Usuario.
+        ///O Método  tem a função de atribuir um objeto da classe Telefone ao atributo **telefone** da classe Usuario.
         void setTelefone (const Telefone &telefone)
         {
             this->telefone = telefone;
         }
 
-        ///O Método  tem a função de atribuir um objeto da classe Email ao atributo *email* da classe Usuario.
+        ///O Método  tem a função de atribuir um objeto da classe Email ao atributo **email** da classe Usuario.
         void setEmail (const Email &email)
         {
             this->email = email;
         }
 
-        ///O Método tem a função de atribuir um objeto da classe Senha ao atributo *senha* da classe Usuario.
+        ///O Método tem a função de atribuir um objeto da classe Senha ao atributo **senha** da classe Usuario.
         void setSenha (const Senha &senha)
         {
             this->senha = senha;
         }
 
-        ///O Método tem a função de atribuir um objeto da classe CPF ao atributo *cpf* da classe Usuario.
+        ///O Método tem a função de atribuir um objeto da classe CPF ao atributo **cpf** da classe Usuario.
         void setCPF (const CPF &cpf)
         {
             this->cpf = cpf;
@@ -83,7 +83,7 @@ class Usuario
 
 
 
-///A Entidade **Reserva** é uma abstração para o registro de um usuário em uma carona do sistema que é indentificada pelos objetos codigo, assento e bagagem.
+///A Entidade **Reserva** é uma abstração para o registro de um usuário em uma carona do sistema, a qual é indentificada por objetos das classe Codigo, Assento e Bagagem.
 class Reserva
 {
     public:
@@ -134,7 +134,7 @@ class Reserva
 
 
 
-///A Entidade **Carona** é uma abstração para o evento principal do sistema de carona que é indentificada pelos objetos codigo, cidadeDeOrigem, estadoDeOrigem,
+///A Entidade **Carona** é uma abstração para o evento principal do sistema de carona, o qual é indentificada pelos objetos codigo, cidadeDeOrigem, estadoDeOrigem,
 ///cidadeDeDestino, estadoDeDestino, data, duracao, vagas, preco.
 class Carona
 {
@@ -271,7 +271,7 @@ class Carona
 
 
 
-///A Entidade **Conta** é uma abstração para a escrituração de registro individual do usuário  do sistema de carona que é indentificada pelos objetos codigoDeBanco, numeroDeAgencia e numeroDeConta.
+///A Entidade **Conta** é uma abstração para a escrituração de registro individual na instituição financeira do usuário do sistema, a qual é indentificada pelos objetos codigoDeBanco, numeroDeAgencia e numeroDeConta.
 class Conta
 {
     public:
