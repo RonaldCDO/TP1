@@ -33,7 +33,6 @@ class Dominio
         string getValor()
         {
             return valor;
-<<<<<<< HEAD
         }
 
         ///Método utilizado para identificar se um elemento do tipo *char* representa uma letra do alfabeto.
@@ -52,13 +51,7 @@ class Dominio
         ///
         ///O método recebe uma string puramente numérica e retorna *True* se os dígitos verificadores respeitam a lógica do algoritmo. Caso contrário, retorna *False*.
         static bool AlgoritmoDeLuhn(string);
-=======
-        }
-        static bool CaracterLetra(char);
-        static bool StringNumerica(string);
-        static bool AlgoritmoDeLuhn(string);
 
->>>>>>> 16795cede38853ede515bcd55beb4f28cdbfab9c
         virtual ~Dominio()
         {
 
